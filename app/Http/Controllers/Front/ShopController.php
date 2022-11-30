@@ -17,8 +17,8 @@ class ShopController extends Controller
 
     public function show($id)
     {
-        $products = $this ->productService->find($id);
+        $product = $this ->productService->find($id);
 
-        return view('front.shop.show',compact('products'));
+        return view('front.shop.show',compact('product'));
     }
 }

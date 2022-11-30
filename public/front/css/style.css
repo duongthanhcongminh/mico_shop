@@ -2150,17 +2150,46 @@ input[type="checkbox"]:checked {
 	line-height: 39px;
 }
 
-.filter-widget .filter-brand li {
-	list-style: none;
-	padding-left: 10px;
-	cursor: pointer;
+.filter-widget .fw-brand-check .bc-item {
+    margin-bottom: 3px;
 }
 
-.filter-widget .filter-brand li a {
-	display: inline-block;
-	color: #636363;
-	font-size: 16px;
-	line-height: 39px;
+.filter-widget .fw-brand-check .bc-item label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 28px;
+}
+
+.filter-widget .fw-brand-check .bc-item label input {
+    position: absolute;
+    visibility: hidden;
+}
+
+.filter-widget .fw-brand-check .bc-item label input:checked~span {
+    background: #e7ab3c;
+    border-color: #e7ab3c;
+}
+
+.filter-widget .fw-brand-check .bc-item label .checkmark {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: 15px;
+    width: 15px;
+    border: 2px solid #ebebeb;
+    border-radius: 2px;
+}
+
+.filter-widget .fw-brand-check .bc-item label .checkmark:after {
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 8px;
+    border: solid white;
+    border-width: 3px 3px 0px 0px;
+    -webkit-transform: rotate(127deg);
+    -ms-transform: rotate(127deg);
+    transform: rotate(127deg);
 }
 
 .filter-widget .filter-range-wrap {
@@ -2234,12 +2263,13 @@ input[type="checkbox"]:checked {
 	font-weight: 300;
 	background: #1B2F44;
 	padding: 7px 20px 5px;
+    border-radius: 2px;
 	display: inline-block;
 	text-transform: uppercase;
 }
 
 .filter-widget .fw-color-choose .cs-item {
-	width: 30%;
+	width: 50%;
 	float: left;
 	margin-bottom: 4px;
 }
@@ -2252,31 +2282,29 @@ input[type="checkbox"]:checked {
 .filter-widget .fw-color-choose .cs-item label {
 	cursor: pointer;
 	position: relative;
-	font-size: 20px;
+    padding-left: 33px;
+    font-size: 20px;
 	color: #636363;
 }
 
-.filter-widget .fw-color-choose .cs-item label.active:before {
-	border: 2px #1B2F44 solid;
-}
-.filter-widget .fw-color-choose .cs-item label.cs-1:before {
-	background: #528d65;
+.filter-widget .fw-color-choose .cs-item label.cs-blue:before {
+    background: #2773BE;
 }
 
-.filter-widget .fw-color-choose .cs-item label.cs-2:before {
-	background: #636363;
+.filter-widget .fw-color-choose .cs-item label.cs-yellow:before {
+    background: #EEEE21;
 }
 
-.filter-widget .fw-color-choose .cs-item label.cs-3:before {
-	background: #ece8db;
+.filter-widget .fw-color-choose .cs-item label.cs-red:before {
+    background: #DC3232;
 }
 
-.filter-widget .fw-color-choose .cs-item label.cs-4:before {
-	background: #0e2b4f;
+.filter-widget .fw-color-choose .cs-item label.cs-green:before {
+    background: #81D742;
 }
 
-.filter-widget .fw-color-choose .cs-item label.cs-5:before {
-	background: #c75498;
+.filter-widget .fw-color-choose .cs-item label.cs-violet:before {
+    background: #8230E3;
 }
 
 .filter-widget .fw-color-choose .cs-item label:before {
@@ -2285,9 +2313,41 @@ input[type="checkbox"]:checked {
 	top: 4px;
 	height: 18px;
 	width: 18px;
-	background: #ffcd01;
+    background: #252525;
 	border-radius: 50%;
 	content: "";
+}
+
+.filter-widget .fw-size-choose .sc-item {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.filter-widget .fw-size-choose .sc-item:last-child {
+    margin-right: 0;
+}
+
+.filter-widget .fw-size-choose .sc-item input {
+    position: absolute;
+    visibility: hidden;
+}
+
+.filter-widget .fw-size-choose .sc-item label {
+    font-size: 16px;
+    color: #252525;
+    font-weight: 700;
+    height: 40px;
+    width: 47px;
+    border: 1px solid #ebebeb;
+    text-align: center;
+    line-height: 40px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.filter-widget .fw-size-choose .sc-item label.active {
+    background: #252525;
+    color: #ffffff;
 }
 
 .filter-widget .fw-tags a {
@@ -2299,25 +2359,6 @@ input[type="checkbox"]:checked {
 	margin-right: 5px;
 	margin-bottom: 9px;
 	border-radius: 2px;
-}
-
-.filter-widget>ul>li::after {
-	position: absolute;
-	content: "";
-	left: 15px;
-	height: 35px;
-	transform: scaleY(0);
-	width: 1px;
-	background: #1b2f44;
-	transition: 0.2s cubic-bezier(1, 0.84, 0.75, 1);
-}
-
-.filter-widget>ul>li:hover::after, .filter-widget>ul>.active::after {
-	transform: scaleY(0.7);
-}
-
-.filter-widget ul li {
-	margin: 5px;
 }
 
 .checkmark:after {
@@ -6274,12 +6315,7 @@ h3#chair-name-2 {
 	.breadcrumb-text {
 		display: none;
 	}
-	.produts-sidebar-filter {
-		margin-top: 30px;
-	}
-	.produts-sidebar-filter .filter-widget {
-		margin-bottom: 15px;
-	}
+
 	.nav-item .nav-depart .depart-btn {
 		padding: 14px 50px 14px 18px;
 	}

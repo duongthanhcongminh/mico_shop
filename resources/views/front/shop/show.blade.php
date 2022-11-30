@@ -3,77 +3,114 @@
 @section('title','Product')
 
 @section('body')
-<!-- Trang trên menu con -->
-<div class = "container">
-    <div class = "row">
-        <div class = "col-lg-12">
-            <div class = "breadcrumb-text">
-                <a href = "index.html"> Home</a>
-                <a href = "products1.html"> Products</a>
-                <a href = "sofas.html"> Sofas & Armchairs</a>
-                    <span>Bergen Miro</span>
+    <!--    breadcrumb section start-->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="index.html"><i class="fa fa-home"></i> Home</a>
+                        <a href="shop.html"> Shop</a>
+                        <span>Detail</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <!--breadcrumb section end-->
 <!-- Banner header -->
-<div id = "banner" style = "background-image: url(front/img/products/banner-sofa.jpg)">
+<div class="bg-img" id = "banner" style = "background-image: url('https://image.stern.de/8912638/t/fz/v2/w1440/r1.3333/-/25-jahre-friends.jpg')">
     <div id = "banner-text">
         <h2>Sofas & Armchairs</h2>
     </div>
 </div>
 
-<div class = "notification-toast animate__animated"></div>
-
 <!-- Body -->
 <!-- Product details-->
-<section class="product-shop spad page-details">
+<section class="product-shop spad ">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1 produts-sidebar-filter">
+            <div class="col-lg-3 col-md-6 col-sm-8">
                 <div class="filter-widget">
                     <h4 class="fw-title">Categories</h4>
                     <ul class="filter-catagories">
-                        <li><a href="diningchairs.html">Dining Chairs</a></li>
-                        <li><a href="sofas.html">Sofas & Armchairs</a></li>
-                        <li><a href="banquette.html">Banquette</a></li>
-                        <li><a href="stool.html">Bar Height Stools</a></li>
-                        <li><a href="officechairs.html">Office Chairs</a></li>
-                        <li><a href="kidschairs.html">Kids Chairs</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Women</a></li>
+                        <li><a href="#">Kids</a></li>
                     </ul>
                 </div>
                 <div class="filter-widget">
                     <h4 class="fw-title">Brand</h4>
-                    <ul class="filter-brand">
-                        <li><a href="bergen-products.html">Bergen</a></li>
-                        <li><a href="belair-products.html">Bel Air</a></li>
-                        <li><a href="bartlett-products.html">Bartlett</a></li>
-                    </ul>
+                    <div class="fw-brand-check">
+                        <div class="bc-item">
+                            <label for="bc-diesel">
+                                Diesel
+                                <input type="checkbox" id="bc-diesel">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="fw-brand-check">
+                        <div class="bc-item">
+                            <label for="bc-calvin">
+                                Calvin Klein
+                                <input type="checkbox" id="bc-calvin">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="fw-brand-check">
+                        <div class="bc-item">
+                            <label for="bc-polo">
+                                Polo
+                                <input type="checkbox" id="bc-polo">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="fw-brand-check">
+                        <div class="bc-item">
+                            <label for="bc-calvin">
+                                Tommy Hilfiger
+                                <input type="checkbox" id="bc-calvin">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="fw-brand-check">
+                        <div class="bc-item">
+                            <label for="bc-polo">
+                                Polo
+                                <input type="checkbox" id="bc-polo">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="fw-brand-check">
+                        <div class="bc-item">
+                            <label for="bc-calvin">
+                                Tommy Hilfiger
+                                <input type="checkbox" id="bc-calvin">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="filter-widget">
                     <h4 class="fw-title">Price</h4>
                     <div class="filter-range-wrap">
-                        <div class="col-sm-12">
-                            <div id="slider-range"></div>
+                        <div class="range-slider">
+                            <div class="price-input">
+                                <input type="text" id="minamount">
+                                <input type="text" id="maxamount">
+                            </div>
+                        </div>
+                        <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="33" data-max="98">
+                            <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                         </div>
                     </div>
-                    <div class="row slider-labels">
-                        <div class="col-xs-6 caption">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <strong>Min</strong> <span id="slider-range-value1"></span>
-                        </div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="col-xs-6 text-right caption">
-                            <strong>Max</strong> <span id="slider-range-value2"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <form>
-                                <input type="hidden" name="min-value" value="">
-                                <input type="hidden" name="max-value" value="">
-                            </form>
-                        </div>
-                    </div><br>
                     <a href="#" class="filter-btn">Filter</a>
                 </div>
                 <div class="filter-widget">
@@ -81,30 +118,65 @@
                     <div class="fw-color-choose">
                         <div class="cs-item">
                             <input type="radio" id="cs-black">
-                            <label class="cs-black" title="Yellow" for="cs-black" onclick = "window.open('product-yellow.html', '_self')"></label>
+                            <label class="cs-black" for="cs-black">black</label>
                         </div>
                         <div class="cs-item">
-                            <input type="radio" id="cs-1">
-                            <label class="cs-1" for="cs-1" title="Green" onclick = "window.open('product-green.html', '_self')"></label>
+                            <input type="radio" id="cs-violet">
+                            <label class="cs-violet" for="cs-violet">violet</label>
                         </div>
                         <div class="cs-item">
-                            <input type="radio" id="cs-2">
-                            <label class="cs-2" for="cs-2" title="Gray" onclick = "window.open('product-gray.html', '_self')"></label>
-                        </div>
-                        <br>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-3">
-                            <label class="cs-3" for="cs-3" title="Beige" onclick = "window.open('product-beige.html', '_self')"></label>
+                            <input type="radio" id="cs-blue">
+                            <label class="cs-blue" for="cs-blue">blue</label>
                         </div>
                         <div class="cs-item">
-                            <input type="radio" id="cs-4">
-                            <label class="cs-4" for="cs-4" title="Blue" onclick = "window.open('product-blue.html', '_self')"></label>
+                            <input type="radio" id="cs-yellow">
+                            <label class="cs-yellow" for="cs-yellow">yellow</label>
                         </div>
                         <div class="cs-item">
-                            <input type="radio" id="cs-5">
-                            <label class="cs-5" for="cs-5" title="Pink" onclick = "window.open('product-pink.html', '_self')"></label>
+                            <input type="radio" id="cs-red">
+                            <label class="cs-red" for="cs-red">red</label>
                         </div>
-
+                        <div class="cs-item">
+                            <input type="radio" id="cs-green">
+                            <label class="cs-green" for="cs-green">green</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-widget">
+                    <h4 class="fw-title">Size</h4>
+                    <div class="fw-size-choose">
+                        <div class="sc-item">
+                            <input type="radio" id="s-size">
+                            <label for="s-size">s</label>
+                        </div>
+                        <div class="sc-item">
+                            <input type="radio" id="m-size">
+                            <label for="s-size">m</label>
+                        </div>
+                        <div class="sc-item">
+                            <input type="radio" id="l-size">
+                            <label for="l-size">l</label>
+                        </div>
+                        <div class="sc-item">
+                            <input type="radio" id="xl-size">
+                            <label for="xl-size">xl</label>
+                        </div>
+                        <div class="sc-item">
+                            <input type="radio" id="xll-size">
+                            <label for="xll-size">xll</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-widget">
+                    <h4 class="fw-title">Tags</h4>
+                    <div class="fw-tags">
+                        <a href="#">Towel</a>
+                        <a href="#">Shoes</a>
+                        <a href="#">Coat</a>
+                        <a href="#">Dresses</a>
+                        <a href="#">Trousers</a>
+                        <a href="#">Men's hat</a>
+                        <a href="#">Backpack</a>
                     </div>
                 </div>
             </div>
@@ -112,50 +184,26 @@
                 <div class="row">
                     <div class="col-lg-6 product-color-1">
                             <div class="product-pic-zoom">
-                                <img class="product-big-img" src="front/img/products/{{ $product->$productImage[0]->path }}" alt="">
+                                <img class="product-big-img" src="front/img/products/{{ $product->productImages[0]->path }}" alt="">
                                 <div class="zoom-icon">
                                     <i class="fa fa-search-plus"></i>
                                 </div>
                             </div>
                             <div class="product-thumbs">
                                 <div class="product-thumbs-track ps-slider owl-carousel">
-                                    @foreach($product->productImage as $productImage)
-                                        <div class="pt active" data-imgbigurl="front/img/products/{{ $product->$productImage[0]->path }}">
-                                            <img src="front/img/products/{{ $product->$productImage[0]->path }}" alt="">
+                                    @foreach($product->productImages as $productImage)
+                                        <div class="pt active" data-imgbigurl="front/img/products/{{ $productImage->path }}">
+                                            <img src="front/img/products/{{ $productImage->path }}" alt="">
                                         </div>
                                     @endforeach
                                 </div>
                             </div>
                     </div>
-                    <div class="col-lg-6 product-color-2">
-                        <div class="product-pic-zoom">
-                            <img class="product-big-img" src="front/img/products/1/color1.jpg" alt="">
-                            <div class="zoom-icon">
-                                <i class="fa fa-search-plus"></i>
-                            </div>
-                        </div>
-                        <div class="product-thumbs">
-                            <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="front/img/products/1/color1.jpg">
-                                    <img src="front/img/products/1/color1.jpg" alt="">
-                                </div>
-                                <div class="pt" data-imgbigurl="front/img/products/1/color2.jpg">
-                                    <img src="front/img/products/1/color2.jpg" alt="">
-                                </div>
-                                <div class="pt" data-imgbigurl="front/img/products/1/color3.jpg">
-                                    <img src="front/img/products/1/color3.jpg" alt="">
-                                </div>
-                                <div class="pt" data-imgbigurl="front/img/products/1/color4.jpg">
-                                    <img src="front/img/products/1/color4.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-6">
                         <div class="product-details">
                             <div class="pd-title">
-                                <span>Sofas & Armchairs</span>
-                                <h3>Bergen Miro</h3>
+                                <span>{{ $product->tag }}</span>
+                                <h3>{{ $product->name }}</h3>
                                 <div class = "heart-color1">
                                     <div class = "heart-icon icon1">
                                         <i class = "fa fa-heart-o"></i>
@@ -168,30 +216,43 @@
                                 </div>
                             </div>
                             <div class="pd-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span>(4)</span>
+                                @for ($i = 1;$i <= 5; $i++)
+                                    @if($i <= $product->avgRating)
+                                        <i class="fa fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star-o"></i>
+                                    @endif
+                                @endfor
+                                <span>({{ count($product->productComments) }})</span>
                             </div>
                             <div class="pd-desc">
-                                <p>Our in-house design team know a thing or two about Scandinavian style. Miro's slim, rounded arms, loose, pillowy back cushions and subtle metal legs are here to prove our point</p>
-                                <h4>$279.30<span>$399.00</span></h4>
+                                <p>{{ $product->content }}</p>
+
+                                @if( $product->discount != null )
+                                    <h4>${{ $product->discount }}<span>${{ $product->price }}</span></h4>
+                                @else
+                                    <h4>${{ $product->price }}</h4>
+                                @endif
                             </div>
                             <div class = "product-color-detail1">
                                 <div class="pd-color">
                                     <h6>Color</h6>
                                     <div class="pd-color-choose">
+                                        @foreach (array_unique(array_column($product->productDetails->toArray(),'color')) as $productColor)
                                         <div class="cc-item">
-                                            <input type="radio" id="color1">
-                                            <label for ="color1" class = "active" style="background: #636363"></label>
+                                            <input type="radio" id="cc-{{ $productColor }}">
+                                            <label for ="cc-{{ $productColor }}" class = "cc-{{ $productColor }}"></label>
                                         </div>
-                                        <div class="cc-item">
-                                            <input type="radio" id="color2">
-                                            <label for ="color2" class = "pd-color-item2" style="background: #528d65"></label>
-                                        </div>
+                                        @endforeach
                                     </div>
+                                </div>
+                                <div class="pd-size_choose">
+                                    @foreach (array_unique(array_column($product->productDetails->toArray(),'size')) as $productSize)
+                                        <div class="sc-item">
+                                            <input type="radio" id="sc-{{ $productSize }}">
+                                            <label for ="sc-{{ $productSize }}">{{ $productSize }}"</label>
+                                        </div>
+                                    @endforeach
                                 </div>
                                 <div class="quantity">
                                         <div class="pro-qty">
@@ -200,31 +261,17 @@
                                         <a href = "#!" class="primary-btn pd-cart add-cart-detail1">Add To Cart</a>
                                 </div>
                             </div>
-                            <div class = "product-color-detail2">
-                                <div class="pd-color">
-                                    <h6>Color</h6>
-                                    <div class="pd-color-choose">
-                                        <div class="cc-item">
-                                            <input type="radio" id="cc-black">
-                                            <label for ="cc-black" class = "pd-color-item1" style="background: #636363"></label>
-                                        </div>
-                                        <div class="cc-item">
-                                            <input type="radio" id="cc-1">
-                                            <label for ="cc-1" class = "active" style="background: #528d65"></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1" id = "qty-detail-2">
-                                    </div>
-                                    <a href = "#!" class="primary-btn pd-cart add-cart-detail1">Add To Cart</a>
-                                </div>
-                            </div>
                             <ul class="pd-tags">
-                                <li><span>Categories</span>: Bergen, Sofas & Armchairs</li>
-                                <li><span>Delivery</span>: In 5 working days</li>
+                                <li><span>Categories</span>: {{ $product->productCategory->name }}</li>
+                                <li><span>TAGS</span>: {{ $product->tag }}</li>
                             </ul>
+                            <div class="pd-share">
+                                <div class="p-code">Sku : {{ $product->sku }}</div>
+                                <a href="#"><i class="ti-facebook"></i></a>
+                                <a href="#"><i class="ti-pinterest"></i></a>
+                                <a href="#"><i class="ti-instagram"></i></a>
+                                <a href="#"><i class="ti-twitter"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -425,7 +472,7 @@
         </div>
     </div>
 
-    
+
 </section>
 <!-- related pờ rô đắc -->
 <div class="related-products spad">
