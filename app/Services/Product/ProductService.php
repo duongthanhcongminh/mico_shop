@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Service\ProductService;
+namespace App\Services\Product;
 
-use App\Repositories\Product\ProdudctRepositoryInterface;
-use App\Service\BaseService;
+use App\Repositories\Product\ProductRepositoryInterface;
+use App\Services\BaseService;
 
 class ProductService extends BaseService implements ProductServiceInterface
 {
     public $repository;
 
-    public function __construct(ProdudctRepositoryInterface $productRepository)
+    public function __construct(ProductRepositoryInterface $productRepository)
     {
         $this->repository = $productRepository;
     }
@@ -28,6 +28,19 @@ class ProductService extends BaseService implements ProductServiceInterface
         $product->avgRating = $avgRating;
 
         return $product;
+    }
+
+    public function getRelatedProducts ($product, $limit = 4)
+    {
+        return $this->repository->getRelatedProducts($product,$limit = 4);
+    }
+
+    public  function  getFeaturedProducts()
+    {
+        return [
+            "men" => $this->repository->getFeaturedProductsByCategory(1),
+            "women" => $this->repository->getFeaturedProductsByCategory(2),
+        ];
     }
 }
 

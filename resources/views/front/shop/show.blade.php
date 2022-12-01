@@ -240,8 +240,8 @@
                                     <div class="pd-color-choose">
                                         @foreach (array_unique(array_column($product->productDetails->toArray(),'color')) as $productColor)
                                         <div class="cc-item">
-                                            <input type="radio" id="cc-{{ $productColor }}">
-                                            <label for ="cc-{{ $productColor }}" class = "cc-{{ $productColor }}"></label>
+                                            <input type="radio" id="cs-{{ $productColor }}">
+                                            <label for ="cs-{{ $productColor }}" class = "cc-{{ $productColor }}"></label>
                                         </div>
                                         @endforeach
                                     </div>
@@ -267,10 +267,12 @@
                             </ul>
                             <div class="pd-share">
                                 <div class="p-code">Sku : {{ $product->sku }}</div>
-                                <a href="#"><i class="ti-facebook"></i></a>
-                                <a href="#"><i class="ti-pinterest"></i></a>
-                                <a href="#"><i class="ti-instagram"></i></a>
-                                <a href="#"><i class="ti-twitter"></i></a>
+                                <div class="pd-social">
+                                    <a href="#"><i class="ti-facebook"></i></a>
+                                    <a href="#"><i class="ti-pinterest"></i></a>
+                                    <a href="#"><i class="ti-instagram"></i></a>
+                                    <a href="#"><i class="ti-twitter"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -280,190 +282,157 @@
                 <ul class="nav" role="tablist">
                     <li><a class="active" href="#tab-1" data-toggle="tab" role="tab">DESCRIPTION</a></li>
                     <li><a href="#tab-2" data-toggle="tab" role="tab">SPECIFICATION</a></li>
-                    <li><a href="#tab-3" data-toggle="tab" role="tab">RATING</a></li>
-                    <li><a href="#tab-4" data-toggle="tab" role="tab">COLOR</a></li>
+                    <li><a href="#tab-3" data-toggle="tab" role="tab">CUSTOMER REVIEWS ({{count( $product->productComments)}})</a></li>
                 </ul>
                 </div>
                 <div class="tab-item-content">
                     <div class="tab-content">
                         <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
-                        <div class="product-content">
+                            <div class="product-content">
                                 <div class="pc-right">
-                                <img src="front/img/products/1/intro1.jpg" alt="">
+                                <img src="front/img/products/{{ $product->productImages[0]->path }}" alt="">
                                 </div>
                                 <h5>Introduction</h5>
-                                <p>The Bergen Miro is perfection in contemporary design.
-                                    Made with the sturdiest of materials, its deep seats with
-                                    well-cushioned back and armrests exudes a classic Danish
-                                    design while resting on slim metal legs to ensure that this
-                                    sofa retains its visually light profile despite its firm support.
-                                    This sofa has been upholstered with SMART fabrics by Davis,
-                                    which features an easy clean, water-repellent fabric to
-                                    allow you that small window of time to swipe liquids up quickly.</p>
+                                <p>{!!   $product->description !!}</p>
                                     <h5>Features</h5>
-                                    <p>The back has a softly curved top rail adding an element
-                                        of comfort in the way the chair cradles and supports
-                                        your back when seated in it. The thinly upholstered,
-                                        enclosed arms come straight out from the chair back and
-                                        slope down at the front from the top to meet the chair seat.
-                                        The seat is framed with welt and exposed wood seat rails.
-                                        The legs of the Bergen chair taper to a thin stiletto look
-                                        at the foot. Stretchers support the legs on each side and
-                                        across the back.</p>
+                                    <p>{{ $product->featured }}</p>
 
                             </div>
                         </div>
                         <div class="tab-pane fade" id="tab-2" role="tabpanel">
-                        <div class="specification-table">
-                            <table>
-                                <tr>
-                                    <td class="p-catagory">DIMENSIONS</td>
-                                    <td>69cm x 92cm x 88cm</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-catagory">LEG HEIGHT</td>
-                                    <td>18cm</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-catagory">WEIGHT</td>
-                                    <td>13kg</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-catagory">AVAILABILITY</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-catagory">RATING</td>
-                                    <td>
-                                        <div class="pd-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <span>(4)</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-catagory">DETAILED DESCRIPTION</td>
-                                    <td><a class="nutdownload" href="https://docs.google.com/document/d/1XLfj82GR2Zzmsio3EHhtW-eMUbW6qpFE/edit" target="_blank" rel="noopener noreferrer"> Download Product Detail <i class = "icon_download"></i></a></td></tr>
-                            </table>
-                        </div>
+                            <div class="specification-table">
+                                <table>
+                                    <tr>
+                                        <td class="p-catagory">Customer Rating</td>
+                                        <td>
+                                            <div class="pd-rating">
+                                                @for($i = 1; $i <= 5;$i++)
+                                                    @if($i <= $product->avgRating)
+                                                        <i class="fa fa-star"></i>
+                                                    @else
+                                                    <i class="fa fa-star-o"></i>
+                                                    @endif
+                                                @endfor
+                                                <span>({{ count($product->productComments) }})</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-catagory">Price</td>
+                                        <td>
+                                            <div class="p-price">
+                                                ${{ $product->price }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-catagory">Add to cart</td>
+                                        <td>
+                                            <div class="cart-add">+ add to cart</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-catagory">Availability</td>
+                                        <td>
+                                            <div class="p-stock">{{ $product->qty }} in stock</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-catagory">Weight</td>
+                                        <td>
+                                            <div class="p-weight">{{ $product->weight }}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-catagory">Size</td>
+                                        <td>
+                                            <div class="p-size">
+                                                @foreach(array_unique(array_column($product->productDetails->toArray(),'size')) as $productSize)
+                                                    {{ $productSize }}
+                                                @endforeach
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-catagory">Color</td>
+                                        <td>
+                                            @foreach(array_unique(array_column($product->productDetails->toArray(),'color')) as $productColor)
+                                                <span class="cs cs-{{$productColor}}"></span>
+                                            @endforeach
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-catagory">Sku</td>
+                                        <td>
+                                            <div class="p-code">{{ $product->sku }}</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                     </div>
                         <div class="tab-pane fade" id="tab-3" role="tabpanel">
                             <div class="customer-review-option">
-                                <h4>02 Comments</h4>
+                                <h4>{{ count($product->productComments) }} Comments</h4>
                                 <div class="comment-option">
-                                    <div class="co-item">
-                                        <div class="avatar-pic">
-                                            <img src="front/img/product-single/ava1.png" alt="">
-                                        </div>
-                                        <div class="avatar-text">
-                                            <div class="at-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                    @foreach($product->productComments as $productComment)
+                                        <div class="co-item">
+                                            <div class="avatar-pic">
+                                                <img src="/front/img/user/{{ $productComment->user->avatar ?? 'default-avatar.png'}}" alt="">
                                             </div>
-                                            <h5 class="commet-khach">Vladimir Putin <span>7 Aug 2021</span></h5>
-                                            <div class="at-reply">Fabric of good quality and looks classy. Satisfied first purchase!</div>
-                                        </div>
-                                    </div>
-                                    <div class="co-item">
-                                        <div class="avatar-pic">
-                                            <img src="front/img/product-single/ava6.png" alt="">
-                                        </div>
-                                        <div class="avatar-text">
-                                            <div class="at-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
+                                            <div class="avatar-text">
+                                                <div class="at-rating">
+                                                    @for($i = 1; $i <= 5;$i++)
+                                                        @if($i <= $productComment->rating)
+                                                            <i class="fa fa-star"></i>
+                                                        @else
+                                                            <i class="fa fa-star-o"></i>
+                                                        @endif
+                                                    @endfor
+                                                </div>
+                                                <h5>{{$productComment->name }} <span>{{ date('m d, Y',strtotime($productComment->create_at)) }}></span></h5>
+                                                <div class="at-reply">{{ $productComment->messages }}</div>
                                             </div>
-                                            <h5 class="commet-khach">Blue Ofourma<span>7 Aug 2021</span></h5>
-                                            <div class="at-reply">Looks great and its firm and comfy</div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
-                                <div class="personal-rating">
-                                    <h6>Your Rating</h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="leave-comment">
-                                    <h4>Leave A Comment</h4>
-                                    <form action="" class="comment-form">
+
+                                <div class="leave-comment mt-5">
+                                    <h4>Leave a comment</h4>
+                                    <form action="" method="post" class="comment-form">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <input type="hidden" name="user_id" value="{{ \Illuminate\Support\Facades\Auth::user()->id ?? null }}">
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <input type="text" placeholder="Your Name">
+                                                <input type="text" placeholder="Name" name="name">
                                             </div>
                                             <div class="col-lg-6">
-                                                <input type="text" placeholder=" Your Email">
+                                                <input type="text" placeholder="Email" name="email">
                                             </div>
                                             <div class="col-lg-12">
-                                                <textarea placeholder="Your Comment"></textarea>
-                                                <div class="anonymous-check">
-                                                <input type="checkbox" value="anonymous"> Anonymous</div>
-                                                <button type="submit" class="site-btn">Comment</button>
+                                                <textarea placeholder="Messages" name="messages"></textarea>
+
+                                                <div class="personal-rating">
+                                                    <h6>Your Rating</h6>
+                                                    <div class="rate">
+                                                        <input type="radio" id="star5" name="rating" value="5" />
+                                                        <label for="star5" title="text">5 stars</label>
+                                                        <input type="radio" id="star4" name="rating" value="4" />
+                                                        <label for="star4" title="text">4 stars</label>
+                                                        <input type="radio" id="star3" name="rating" value="3" />
+                                                        <label for="star3" title="text">3 stars</label>
+                                                        <input type="radio" id="star2" name="rating" value="2" />
+                                                        <label for="star2" title="text">2 stars</label>
+                                                        <input type="radio" id="star1" name="rating" value="1" />
+                                                        <label for="star1" title="text">1 star</label>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="site-btn">Send message</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                    </div>
-                        <div class="tab-pane fade" id="tab-4" role="tabpanel">
-                            <div>
-                                <!-- Tab Color -->
-                                <div class="tabs">
-                                    <div class="tab-itemcolor active">
-                                        <div class="cc-item">
-                                            Gray
-                                            <input type="radio" id="cc-black">
-                                            <label for ="cc-black" class = "pd-color-item1 active" style="background: #636363"></label><!--x-->
-                                        </div>
-                                    </div>
-                                    <div class="tab-itemcolor">
-                                        <div class="cc-item">
-                                            Green
-                                            <input type="radio" id="cc-1">
-                                            <label for ="cc-1" class = "pd-color-item2" style="background: #528d65"></label><!--o-->
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Tab Pictures -->
-                                <div class="tab-contentcolor">
-                                    <div class="tab-panecolor active">
-                                        <div class = "row"><!--x-->
-                                            <div class = "col-lg-6">
-                                                <img src="front/img/products/1/arm1.jpg">
-                                            </div>
-                                            <div class = "col-lg-6">
-                                                <img src="front/img/products/1/arm1-2.jpg">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-panecolor">
-                                        <div class = "row"><!--o-->
-                                            <div class = "col-lg-6">
-                                                <img src="front/img/products/1/color1.jpg">
-                                            </div>
-                                            <div class = "col-lg-6">
-                                                <img src="front/img/products/1/color2.jpg">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -474,7 +443,7 @@
 
 
 </section>
-<!-- related pờ rô đắc -->
+<!-- related product -->
 <div class="related-products spad">
     <div class="container">
         <div class="row">
@@ -485,122 +454,40 @@
             </div>
         </div>
         <div class="row">
+            @foreach($relatedProducts as $relatedProduct)
             <div class="col-lg-3 col-sm-6">
                 <div class="product-item">
                     <div class="pi-pic">
-                        <img src="front/img/products/2/arm2.jpg" alt="21">
-                        <div class="sale">Sale 30%</div>
-                        <div class = "icon2 icon-heart">
-                                    <i class = "fa fa-heart-o"></i>
-                                </div>
-                        <ul>
-                            <li class="w-icon active"><a href="#!" class = "add-cart2"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="productdetail02.html">+ Quick View</a></li>
-                            <li class="w-icon"><a href="https://www.facebook.com/sharer/sharer.php?app_id=11610943376281
-                            27&sdk=joey&u=https://richfieldchairs.github.io/chairs/productdetail02.html"
-                                                  onclick="return !window.open(this.href, 'Facebook',
-                            'width=640,height=580')"><i class="fa fa-share"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="pi-text">
-                        <div class="category-name">SOFAS & ARMCHAIRS</div>
-                        <a href="productdetail02.html">
-                            <h5>Bergen Kubrick</h5>
-                        </a>
-                        <div class="product-price">
-                            $349.30
-                            <span>$499.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="front/img/products/16/anhchinh.jpg" alt="21">
-                        <!--                        <div class="sale">Sale 30%</div>-->
+                        <img src="front/img/products/{{ $product->productImages[0]->path }}" alt="">
+                        @if ($product->discount != null)
+                            <div class="sale">Sale</div>
+                        @endif
                         <div class = "icon16 icon-heart">
                             <i class = "fa fa-heart-o"></i>
                         </div>
                         <ul>
                             <li class="w-icon active"><a href="#!" class = "add-cart16"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="productdetail16.html">+ Quick View</a></li>
-                            <li class="w-icon"><a href="https://www.facebook.com/sharer/sharer.php?app_id=11610943376281
-                            27&sdk=joey&u=https://richfieldchairs.github.io/chairs/productdetail16.html"
-                                                  onclick="return !window.open(this.href, 'Facebook',
-                            'width=640,height=580')"><i class="fa fa-share"></i></a></li>
+                            <li class="quick-view"><a href="shop/product/{{ $product->id }}">+ Quick View</a></li>
+                            <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
                         </ul>
                     </div>
                     <div class="pi-text">
-                        <div class="category-name">DINING CHAIRS</div>
-                        <a href="productdetail16.html">
-                            <h5>Bergen Abbon</h5>
+                        <div class="category-name">{{ $product->tag}}</div>
+                        <a href="shop/product/{{ $product->id }}">
+                            <h5>{{ $product->name }}</h5>
                         </a>
                         <div class="product-price">
-                            $399.00
-                            <!--                            <span>$499.00</span>-->
+                            @if($product->discount != null)
+                                ${{ $product->discount }}
+                                <span>${{ $product->price }}</span>
+                            @else
+                                ${{ $product->price }}
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="front/img/products/17/anhchinh.jpg" alt="21">
-                        <!--                        <div class="sale">Sale 30%</div>-->
-                        <div class = "icon17 icon-heart">
-                            <i class = "fa fa-heart-o"></i>
-                        </div>
-                        <ul>
-                            <li class="w-icon active"><a href="#!" class = "add-cart17"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="productdetail17.html">+ Quick View</a></li>
-                            <li class="w-icon"><a href="https://www.facebook.com/sharer/sharer.php?app_id=11610943376281
-                            27&sdk=joey&u=https://richfieldchairs.github.io/chairs/productdetail17.html"
-                                                  onclick="return !window.open(this.href, 'Facebook',
-                            'width=640,height=580')"><i class="fa fa-share"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="pi-text">
-                        <div class="category-name">DINING CHAIRS</div>
-                        <a href="productdetail17.html">
-                            <h5>Bergen Revy</h5>
-                        </a>
-                        <div class="product-price">
-                            $249.00
-                            <!--                            <span>£109</span>-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="front/img/products/18/anhchinh.jpg" alt="21">
-                        <div class="sale">Sale 50%</div>
-                        <div class = "icon18 icon-heart">
-                            <i class = "fa fa-heart-o"></i>
-                        </div>
-                        <ul>
-                            <li class="w-icon active"><a href="#!" class = "add-cart18"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="productdetail18.html">+ Quick View</a></li>
-                            <li class="w-icon"><a href="https://www.facebook.com/sharer/sharer.php?app_id=11610943376281
-                            27&sdk=joey&u=https://richfieldchairs.github.io/chairs/productdetail18.html"
-                                                  onclick="return !window.open(this.href, 'Facebook',
-                            'width=640,height=580')"><i class="fa fa-share"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="pi-text">
-                        <div class="category-name">DINING CHAIRS</div>
-                        <a href="productdetail18.html">
-                            <h5>Bergen Kalaspel</h5>
-                        </a>
-                        <div class="product-price">
-                            $114.50
-                            <span>$229.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

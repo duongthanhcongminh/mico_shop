@@ -186,123 +186,133 @@
 
 </div>
 
-<!-- Bestsellers -->
-<section class = "bestsell-banner spad">
-    <h2>Best sellers</h2>
-    <div class = "container-fluid" style = "padding: 20px 0 0;">
-        <div class = "product-slider owl-carousel">
-            <div class = "product-item">
-                <div class = "pi-pic">
-                    <img src = "front/img/products/1/t-shirt1.jpg" alt = "">
-                    <div class = "sale">Sale 30%</div>
-                    <div class = "icon1 icon-heart">
-                        <i class = "fa fa-heart-o"></i>
-                    </div>
-                    <ul>
-                        <li class = "w-icon active"><a href = "#!" class = "add-cart1"><i class = "icon_bag_alt"></i></a></li>
-                        <li class = "quick-view"><a href = "#">+ Quick View</a></li>
-                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
-                    </ul>
-                </div>
-                <div class = "pi-text">
-                    <div class = "catagory-name">T-shrit</div>
-                    <a href = "#">
-                        <h5>Men's T-shirt</h5>
-                    </a>
-                    <div class = "product-price">
-                        $279.30 <span>$399.00</span>
-                    </div>
+<!-- Men's  -->
+<section class = "men-banner spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="product-large set-bg" data-setbg="front/img/man-large.jpg">
+                    <h2>Men's</h2>
+                    <a href="#">Discover More</a>
                 </div>
             </div>
-            <div class = "product-item">
-                <div class = "pi-pic">
-                    <img src = "front/img/products/1/t-shirt2.jpg" alt = "">
-                    <div class = "sale">Sale 30%</div>
-                    <div class = "icon2 icon-heart">
-                        <i class = "fa fa-heart-o"></i>
+            <div class="col-lg-8 offset-lg-1">
+
+                <div class = "product-slider owl-carousel d-flex justify-content-center align-items-center">
+                    <div class = "product-item">
+                        <div class = "pi-pic">
+                            <img src = "front/img/products/1/t-shirt1.jpg" alt = "">
+                            <div class = "sale">Sale 30%</div>
+                            <div class = "icon1 icon-heart">
+                                <i class = "fa fa-heart-o"></i>
+                            </div>
+                            <ul>
+                                <li class = "w-icon active"><a href = "#!" class = "add-cart1"><i class = "icon_bag_alt"></i></a></li>
+                                <li class = "quick-view"><a href = "#">+ Quick View</a></li>
+                                <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class = "pi-text">
+                            <div class = "catagory-name">T-shrit</div>
+                            <a href = "#">
+                                <h5>Men's T-shirt</h5>
+                            </a>
+                            <div class = "product-price">
+                                $279.30 <span>$399.00</span>
+                            </div>
+                        </div>
                     </div>
-                    <ul>
-                        <li class = "w-icon active"><a href = "#!" class = "add-cart2"><i class = "icon_bag_alt"></i></a></li>
-                        <li class = "quick-view"><a href = "productdetail02.html">+ Quick View</a></li>
-                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
-                    </ul>
-                </div>
-                <div class = "pi-text">
-                    <div class = "catagory-name">T-shirt</div>
-                    <a href = "#">
-                        <h5>Men's T-shirt</h5>
-                    </a>
-                    <div class = "product-price">
-                        $349.30
-                        <span>$499.00</span>
+                    <div class = "product-item">
+                        <div class = "pi-pic">
+                            <img src = "front/img/products/1/t-shirt2.jpg" alt = "">
+                            <div class = "sale">Sale 30%</div>
+                            <div class = "icon2 icon-heart">
+                                <i class = "fa fa-heart-o"></i>
+                            </div>
+                            <ul>
+                                <li class = "w-icon active"><a href = "#!" class = "add-cart2"><i class = "icon_bag_alt"></i></a></li>
+                                <li class = "quick-view"><a href = "productdetail02.html">+ Quick View</a></li>
+                                <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class = "pi-text">
+                            <div class = "catagory-name">T-shirt</div>
+                            <a href = "#">
+                                <h5>Men's T-shirt</h5>
+                            </a>
+                            <div class = "product-price">
+                                $349.30
+                                <span>$499.00</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class = "product-item">
-                <div class = "pi-pic">
-                    <img src = "front/img/products/1/t-shirt3.jpg" alt = "">
-                    <div class = "sale">Sale 30%</div>
-                    <div class = "icon6 icon-heart">
-                        <i class = "fa fa-heart-o"></i>
+                    <div class = "product-item">
+                        <div class = "pi-pic">
+                            <img src = "front/img/products/1/t-shirt3.jpg" alt = "">
+                            <div class = "sale">Sale 30%</div>
+                            <div class = "icon6 icon-heart">
+                                <i class = "fa fa-heart-o"></i>
+                            </div>
+                            <ul>
+                                <li class = "w-icon active"><a href = "#!" class = "add-cart6"><i class = "icon_bag_alt"></i></a></li>
+                                <li class = "quick-view"><a href = "#">+ Quick View</a></li>
+                                <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class = "pi-text">
+                            <div class = "catagory-name">T-shirt</div>
+                            <a href = "#">
+                                <h5>Men's T-shirt</h5>
+                            </a>
+                            <div class = "product-price">
+                                $209.30
+                                <span>$299.00</span>
+                            </div>
+                        </div>
                     </div>
-                    <ul>
-                        <li class = "w-icon active"><a href = "#!" class = "add-cart6"><i class = "icon_bag_alt"></i></a></li>
-                        <li class = "quick-view"><a href = "#">+ Quick View</a></li>
-                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
-                    </ul>
-                </div>
-                <div class = "pi-text">
-                    <div class = "catagory-name">T-shirt</div>
-                    <a href = "#">
-                        <h5>Men's T-shirt</h5>
-                    </a>
-                    <div class = "product-price">
-                        $209.30
-                        <span>$299.00</span>
+                    <div class = "product-item">
+                        <div class = "pi-pic">
+                            <img src = "front/img/products/1/short1.jpg" alt = "">
+                            <div class = "icon10 icon-heart">
+                                <i class = "fa fa-heart-o"></i>
+                            </div>
+                            <ul>
+                                <li class = "w-icon active"><a href = "#!" class = "add-cart10"><i class = "icon_bag_alt"></i></a></li>
+                                <li class = "quick-view"><a href = "p#">+ Quick View</a></li>
+                                <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class = "pi-text">
+                            <div class = "catagory-name">Short</div>
+                            <a href = "#">
+                                <h5>Men's Short</h5>
+                            </a>
+                            <div class = "product-price">
+                                $2,199.00
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class = "product-item">
-                <div class = "pi-pic">
-                    <img src = "front/img/products/1/short1.jpg" alt = "">
-                    <div class = "icon10 icon-heart">
-                        <i class = "fa fa-heart-o"></i>
-                    </div>
-                    <ul>
-                        <li class = "w-icon active"><a href = "#!" class = "add-cart10"><i class = "icon_bag_alt"></i></a></li>
-                        <li class = "quick-view"><a href = "p#">+ Quick View</a></li>
-                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
-                    </ul>
-                </div>
-                <div class = "pi-text">
-                    <div class = "catagory-name">Short</div>
-                    <a href = "#">
-                        <h5>Men's Short</h5>
-                    </a>
-                    <div class = "product-price">
-                        $2,199.00
-                    </div>
-                </div>
-            </div>
-            <div class = "product-item">
-                <div class = "pi-pic">
-                    <img src = "front/img/products/1/jean1.jpg" alt = "">
-                    <div class = "icon15 icon-heart">
-                        <i class = "fa fa-heart-o"></i>
-                    </div>
-                    <ul>
-                        <li class = "w-icon active"><a href = "#!" class = "add-cart15"><i class = "icon_bag_alt"></i></a></li>
-                        <li class = "quick-view"><a href = "#">+ Quick View</a></li>
-                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
-                    </ul>
-                </div>
-                <div class = "pi-text">
-                    <div class = "catagory-name">Jeans</div>
-                    <a href = "#">
-                        <h5>Jeans</h5>
-                    </a>
-                    <div class = "product-price">
-                        $179.00
+                    <div class = "product-item">
+                        <div class = "pi-pic">
+                            <img src = "front/img/products/1/jean1.jpg" alt = "">
+                            <div class = "icon15 icon-heart">
+                                <i class = "fa fa-heart-o"></i>
+                            </div>
+                            <ul>
+                                <li class = "w-icon active"><a href = "#!" class = "add-cart15"><i class = "icon_bag_alt"></i></a></li>
+                                <li class = "quick-view"><a href = "#">+ Quick View</a></li>
+                                <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class = "pi-text">
+                            <div class = "catagory-name">Jeans</div>
+                            <a href = "#">
+                                <h5>Jeans</h5>
+                            </a>
+                            <div class = "product-price">
+                                $179.00
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -344,9 +354,9 @@
 
 </section>
 
-<!-- Top Sale -->
-<section class = "sale-banner spad">
-    <h2>On Sale</h2>
+<!-- Woman -->
+<section class = "men-banner spad mt-5">
+    <h2>Women's</h2>
     <div class = "container-fluid" style = "padding: 20px 0 0;">
         <div class = "product-slider owl-carousel">
             <div class = "product-item">
@@ -471,6 +481,135 @@
     </div>
 </section>
 
+<div class="deal-of-week spad">
+    <img src="front/img/hero-2.jpg">
+</div>
+<!-- Kid -->
+<section class = "men-banner spad mt-5">
+    <h2>Kid's</h2>
+    <div class = "container-fluid" style = "padding: 20px 0 0;">
+        <div class = "product-slider owl-carousel">
+            <div class = "product-item">
+                <div class = "pi-pic">
+                    <img src = "front/img/products/1/t-shirt1.jpg" alt = "">
+                    <div class = "sale">Sale 30%</div>
+                    <div class = "icon4 icon-heart">
+                        <i class = "fa fa-heart-o"></i>
+                    </div>
+                    <ul>
+                        <li class = "w-icon active"><a href = "#!" class = "add-cart4"><i class = "icon_bag_alt"></i></a></li>
+                        <li class = "quick-view"><a href = "#">+ Quick View</a></li>
+                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                    </ul>
+                </div>
+                <div class = "pi-text">
+                    <div class = "catagory-name">T-shirt</div>
+                    <a href = "#">
+                        <h5>Men's T-shirt</h5>
+                    </a>
+                    <div class = "product-price">
+                        $209.30  <span>$299.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class = "product-item">
+                <div class = "pi-pic">
+                    <img src = "front/img/products/1/t-shirt2.jpg" alt = "">
+                    <div class = "sale">Sale 30%</div>
+                    <div class = "icon8 icon-heart">
+                        <i class = "fa fa-heart-o"></i>
+                    </div>
+                    <ul>
+                        <li class = "w-icon active"><a href = "#!" class = "add-cart8"><i class = "icon_bag_alt"></i></a></li>
+                        <li class = "quick-view"><a href = "#">+ Quick View</a></li>
+                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                    </ul>
+                </div>
+                <div class = "pi-text">
+                    <div class = "catagory-name">T-shirt</div>
+                    <a href = "#">
+                        <h5>Men's T-shirt</h5>
+                    </a>
+                    <div class = "product-price">
+                        $734.30
+                        <span>$1,049.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class = "product-item">
+                <div class = "pi-pic">
+                    <img src = "front/img/products/1/t-shirt2.jpg" alt = "">
+                    <div class = "sale">Sale 30%</div>
+                    <div class = "icon9 icon-heart">
+                        <i class = "fa fa-heart-o"></i>
+                    </div>
+                    <ul>
+                        <li class = "w-icon active"><a href = "#!" class = "add-cart9"><i class = "icon_bag_alt"></i></a></li>
+                        <li class = "quick-view"><a href = "#">+ Quick View</a></li>
+                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                    </ul>
+                </div>
+                <div class = "pi-text">
+                    <div class = "catagory-name">T-shirt</div>
+                    <a href = "#">
+                        <h5>Men's T-shirt</h5>
+                    </a>
+                    <div class = "product-price">
+                        $734.30
+                        <span>$1,049.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class = "product-item">
+                <div class = "pi-pic">
+                    <img src = "front/img/products/1/short1.jpg" alt = "">
+                    <div class = "sale">Sale 30%</div>
+                    <div class = "icon27 icon-heart">
+                        <i class = "fa fa-heart-o"></i>
+                    </div>
+                    <ul>
+                        <li class = "w-icon active"><a href = "#!" class = "add-cart27"><i class = "icon_bag_alt"></i></a></li>
+                        <li class = "quick-view"><a href = "#">+ Quick View</a></li>
+                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                    </ul>
+                </div>
+                <div class = "pi-text">
+                    <div class = "catagory-name">Short</div>
+                    <a href = "#">
+                        <h5>Men's Short</h5>
+                    </a>
+                    <div class = "product-price">
+                        $125.30  <span>$179.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class = "product-item">
+                <div class = "pi-pic">
+                    <img src = "front/img/products/1/jean1.jpg" alt = "">
+                    <div class = "sale">Sale 30%</div>
+                    <div class = "icon28 icon-heart">
+                        <i class = "fa fa-heart-o"></i>
+                    </div>
+                    <ul>
+                        <li class = "w-icon active"><a href = "#!" class = "add-cart28"><i class = "icon_bag_alt"></i></a></li>
+                        <li class = "quick-view"><a href = "#">+ Quick View</a></li>
+                        <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+                    </ul>
+                </div>
+                <div class = "pi-text">
+                    <div class = "catagory-name">Jeans</div>
+                    <a href = "#">
+                        <h5>Men's Jeans</h5>
+                    </a>
+                    <div class = "product-price">
+                        $279.30
+                        <span>$399.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Shop by Brand -->
 <div class = "brand-section spad">
     <div class = "row">
