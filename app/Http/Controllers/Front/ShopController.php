@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\ProductComment\ProductCommentRepositoryInterface;
+use App\Repositories\ProductComment\BlogRepositoryInterface;
 use App\Services\Product\ProductService;
 use App\Services\Product\ProductServiceInterface;
 use App\Services\ProductComment\ProductCommentServiceInterface;
@@ -35,6 +35,13 @@ class ShopController extends Controller
         $this->productCommentService->create($request->all());
 
         return redirect()->back();
+    }
+
+    public  function index()
+    {
+        $products = $this->productService->getProductOnIndex();
+
+        return view('front.shop.index', compact('products'));
     }
 
 }

@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
+    <link href="https://unpkg.com/tailwindcss@*1.0/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="front/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="front/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="front/css/themify-icons.css" type="text/css">
@@ -24,7 +25,7 @@
     <link rel="stylesheet" href="front/css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="front/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+{{--    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">--}}
     <script src="https://kit.fontawesome.com/477e627b99.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="front/css/owl.video.css">
     <link rel="stylesheet" href="front/css/style.css" type="text/css">
@@ -81,13 +82,13 @@
             <div class="row">
                 <div class = "logo-sticky">
                     <div class="logo">
-                        <a href="index.html"><img src="front/img/logo-01.png" height ="25"></a>
+                        <a href="/"><img src="front/img/logo-01.png" height ="25"></a>
                     </div>
                 </div>
                 <div class = "nav-bar">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="#">Shop</a></li>
+                        <li class="{{ (request()->segment(1) == '') ? 'active' : '' }}"><a href="./">Home</a></li>
+                        <li class="{{ (request()->segment(1) == 'shop') ? 'active' : '' }}"><a href="./shop">Shop</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
                                 <li><a href="#">Men's</a></li>

@@ -25,4 +25,11 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             ->where('product_category_id',$categoryId)
             ->get();
     }
+
+    public function getProductOnIndex()
+    {
+        $products = $this->model->paginate(3);
+
+        return $products;
+    }
 }
