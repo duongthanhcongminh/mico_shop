@@ -11,4 +11,6 @@ interface ProductRepositoryInterface extends RepositoryInterface
     public function getFeaturedProductsByCategory(int $categoryId);
 
     public function getProductOnIndex($request);
+
+    public function sortAndPagination($products, $request);
 }

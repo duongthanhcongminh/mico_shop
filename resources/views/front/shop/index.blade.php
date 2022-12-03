@@ -9,9 +9,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="index.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="shop.html"> Shop</a>
-                        <span>Detail</span>
+                        <a href="/"><i class="fa fa-home"></i> Home</a>
+                        <span>Shop</span>
                     </div>
                 </div>
             </div>
@@ -36,9 +35,9 @@
                 <div class="filter-widget">
                     <h4 class="fw-title">Categories</h4>
                     <ul class="filter-catagories">
-                        <li><a href="#">Men</a></li>
-                        <li><a href="#">Women</a></li>
-                        <li><a href="#">Kids</a></li>
+                        @foreach($categories as $category)
+                        <li><a href="shop/category/{{ $category->name }}">{{$category->name}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="filter-widget">

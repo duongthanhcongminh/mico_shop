@@ -146,7 +146,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
-                        <a href="index.html"><img src="front/img/logo-01.png"></a>
+                        <a href="/"><img src="front/img/logo-01.png"></a>
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-7">
