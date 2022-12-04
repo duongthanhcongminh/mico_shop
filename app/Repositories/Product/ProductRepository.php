@@ -35,7 +35,9 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
         $products = $this->model->where('name', 'like', '%'. $search .'%');
 
+        $products = $this->filter($products,$request);
         $products = $this->sortAndPagination($products, $request);
+
 
         return $products;
     }
@@ -44,7 +46,9 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     {
         $products = ProductCategory::where('name', $categoryName)->first()->products->toQuery();
 
+        $products = $this->filter($products,$request);
         $products = $this->sortAndPagination($products, $request);
+
 
         return $products;
     }
@@ -80,6 +84,28 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         $products = $products->paginate($perPage);
 
         $products->appends(['sort_by' => $sortBy, 'show'=> $perPage]);
+
+        return $products;
+    }
+
+    private function filter($products, $request)
+    {
+        //Brand:
+        $brand = $request->brand ?? [];
+        $brand_ids = array_keys($brand);
+        $products = $brand_ids != null ? $products->whereIn('brand_id', $brand_ids): $products;
+
+        //Price:
+        $priceMin = $request->price_min;
+        $priceMax = $request->price_max;
+
+        $priceMin = str_replace('$', '', $priceMin);
+        $priceMax = str_replace('$', '', $priceMax);
+
+        $products = ($priceMin != null && $priceMax != null)
+            ? $products->whereBetween('price', [$priceMin, $priceMax])
+            : $products;
+
 
         return $products;
     }
