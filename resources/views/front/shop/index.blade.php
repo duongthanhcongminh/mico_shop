@@ -84,28 +84,34 @@
                         <h4 class="fw-title">Color</h4>
                         <div class="fw-color-choose">
                             <div class="cs-item">
-                                <input type="radio" id="cs-black">
-                                <label class="cs-black" for="cs-black">black</label>
+                                <input type="radio" id="cs-black" name="color" value="black" onchange="this.form.submit();"
+                                        {{ request('color') == 'black' ? 'checked' : ''}} >
+                                <label class="cs-black {{request('color') == 'black' ? 'font-weight-bold' : ''}}" for="cs-black">black</label>
                             </div>
                             <div class="cs-item">
-                                <input type="radio" id="cs-violet">
-                                <label class="cs-violet" for="cs-violet">violet</label>
+                                <input type="radio" id="cs-violet" name="color" value="violet" onchange="this.form.submit();"
+                                    {{ request('color') == 'violet' ? 'checked' : ''}} >
+                                <label class="cs-violet {{request('color') == 'violet' ? 'font-weight-bold' : ''}}" for="cs-violet">violet</label>
                             </div>
                             <div class="cs-item">
-                                <input type="radio" id="cs-blue">
-                                <label class="cs-blue" for="cs-blue">blue</label>
+                                <input type="radio" id="cs-blue" name="color" value="blue" onchange="this.form.submit();"
+                                    {{ request('color') == 'blue' ? 'checked' : ''}} >
+                                <label class="cs-blue {{request('color') == 'blue' ? 'font-weight-bold' : ''}}" for="cs-blue">blue</label>
                             </div>
                             <div class="cs-item">
-                                <input type="radio" id="cs-yellow">
-                                <label class="cs-yellow" for="cs-yellow">yellow</label>
+                                <input type="radio" id="cs-yellow" name="color" value="yellow" onchange="this.form.submit();"
+                                    {{ request('color') == 'yellow' ? 'checked' : ''}} >
+                                <label class="cs-yellow {{request('color') == 'yellow' ? 'font-weight-bold' : ''}}" for="cs-yellow">yellow</label>
                             </div>
                             <div class="cs-item">
-                                <input type="radio" id="cs-red">
-                                <label class="cs-red" for="cs-red">red</label>
+                                <input type="radio" id="cs-red" name="color" value="red" onchange="this.form.submit();"
+                                    {{ request('color') == 'red' ? 'checked' : ''}} >
+                                <label class="cs-red {{request('color') == 'red' ? 'font-weight-bold' : ''}}" for="cs-red">red</label>
                             </div>
                             <div class="cs-item">
-                                <input type="radio" id="cs-green">
-                                <label class="cs-green" for="cs-green">green</label>
+                                <input type="radio" id="cs-green" name="color" value="green" onchange="this.form.submit();"
+                                    {{ request('color') == 'green' ? 'checked' : ''}} >
+                                <label class="cs-green {{request('color') == 'green' ? 'font-weight-bold' : ''}}" for="cs-green">green</label>
                             </div>
                         </div>
                     </div>
@@ -113,24 +119,29 @@
                         <h4 class="fw-title">Size</h4>
                         <div class="fw-size-choose">
                             <div class="sc-item">
-                                <input type="radio" id="s-size">
-                                <label for="s-size">s</label>
+                                <input type="radio" id="s-size" name="size" value="s" onchange="this.form.submit();"
+                                    {{ request('size') == 's' ? 'checked' : '' }}>
+                                <label for="s-size" class="{{ request('size') == 's' ? 'active' : '' }}" >s</label>
                             </div>
                             <div class="sc-item">
-                                <input type="radio" id="m-size">
-                                <label for="s-size">m</label>
+                                <input type="radio" id="m-size" name="size" value="m" onchange="this.form.submit();"
+                                    {{ request('size') == 'm' ? 'checked' : '' }}>
+                                <label for="m-size" class="{{ request('size') == 'm' ? 'active' : '' }}" >m</label>
                             </div>
                             <div class="sc-item">
-                                <input type="radio" id="l-size">
-                                <label for="l-size">l</label>
+                                <input type="radio" id="l-size" name="size" value="l" onchange="this.form.submit();"
+                                    {{ request('size') == 'l' ? 'checked' : '' }}>
+                                <label for="l-size" class="{{ request('size') == 'l' ? 'active' : '' }}">l</label>
                             </div>
                             <div class="sc-item">
-                                <input type="radio" id="xl-size">
-                                <label for="xl-size">xl</label>
+                                <input type="radio" id="xl-size" name="size" value="xl" onchange="this.form.submit();"
+                                    {{ request('size') == 'xl' ? 'checked' : '' }}>
+                                <label for="xl-size" class="{{ request('size') == 'xl' ? 'active' : '' }}">xl</label>
                             </div>
                             <div class="sc-item">
-                                <input type="radio" id="xll-size">
-                                <label for="xll-size">xll</label>
+                                <input type="radio" id="xll-size" name="size" value="xxl" onchange="this.form.submit();"
+                                    {{ request('size') == 'xxl' ? 'checked' : '' }}>
+                                <label for="xll-size class="{{ request('size') == 'xxl' ? 'active' : '' }}"">xll</label>
                             </div>
                         </div>
                     </div>
