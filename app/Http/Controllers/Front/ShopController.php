@@ -11,6 +11,7 @@ use App\Services\ProductCategory\ProductCategoryService;
 use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use App\Services\ProductComment\ProductCommentServiceInterface;
 use Illuminate\Http\Request;
+use function Symfony\Component\String\b;
 
 
 class ShopController extends Controller
@@ -34,10 +35,13 @@ class ShopController extends Controller
 
     public function show($id)
     {
+        $categories = $this->productCategoryService->all();
+        $brands = $this->brandService->all();
+
         $product = $this ->productService->find($id);
         $relatedProducts = $this->productService->getRelatedProducts($product);
 
-        return view('front.shop.show',compact('product','relatedProducts'));
+        return view('front.shop.show',compact('product','relatedProducts', 'categories','brands'));
     }
 
     public function postComment(Request $request)

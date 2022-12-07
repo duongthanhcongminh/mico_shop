@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link href="https://unpkg.com/tailwindcss@*1.0/tailwind.min.css" rel="stylesheet">
+{{--    <link href="https://unpkg.com/tailwindcss@*1.0/tailwind.min.css" rel="stylesheet">--}}
     <link rel="stylesheet" href="front/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="front/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="front/css/themify-icons.css" type="text/css">
@@ -130,7 +130,7 @@
                                 <a href = "#"><i class = "fa fa-heart-o"></i></a>
                             </li>
                             <li class="cart-icon-1">
-                                <a href = "#">
+                                <a href = "/cart">
                                     <i class="icon_bag_alt"></i>
                                     <span>0</span>
                                 </a>
@@ -172,30 +172,38 @@
                                 <a href = "wishlist.html"><i class = "fa fa-heart-o"></i></a>
                             </li>
                             <li class="cart-icon">
-                                <a href = "cart.html">
+                                <a href = "./cart">
                                     <i class="icon_bag_alt"></i>
-                                    <span>0</span>
+                                    <span class="cart-count">{{ Cart::count() }}</span>
                                 </a>
-                                <div class = "cart-hover">
-                                    <div class = "row select-items">
-                                        <div class = "col-lg-12">
-                                            <div class = "cart-hover-items">
-                                                <div class = "select-button">
-                                                    <a href = "cart.html" class = "primary-btn view-card">VIEW CART
-                                                    </a>
-                                                    <a onclick="return cartcheck1()" class = "primary-btn checkout-card">CHECK OUT</a>
-                                                    <div class="row">
-                                                        <div class="col-lg-6 checkoutbtn-left">
-                                                            <div id="cartcheckError1"></div>
-                                                        </div>
-                                                        <div class="col-lg-6 checkoutbtn-right">
-                                                            <div id="go-shopping"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                                <div class="cart-hover">
+                                    <div class="select-items">
+                                        <table>
+                                            <tbody>
+                                                @foreach(Cart::content() as $cart)
+                                                    <tr data-rowId = "{{$cart->rowId}}">
+                                                        <td class="si-pic"><img style="height: 70px;" src="front/img/products/{{ $cart->options->images[0]->path }}" alt=""></td>
+                                                        <td class="si-text">
+                                                            <div class="product-selected">
+                                                                <p>${{ $cart->price }} x {{ $cart->qty }}</p>
+                                                                <h6>{{ $cart->name }}</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td class="si-close">
+                                                            <i onclick="removeCart('{{ $cart->rowId }}')" class="ti-close"></i>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="select-total">
+                                        <span>total:</span>
+                                        <h5>${{ Cart::total() }}</h5>
+                                    </div>
+                                    <div class="select-button">
+                                        <a href="./cart" class="primary-btn view-card">VIEW CARD</a>
+                                        <a href="check-out.html" class="primary-btn checkout-card">CHECK OUT</a>
                                     </div>
                                 </div>
                             </li>
@@ -274,7 +282,7 @@
                     <ul>
                         <li><a href = "login.html">Log in</a></li>
                         <li><a href = "register.html">Register</a></li>
-                        <li><a href = "cart.html">Shopping Cart</a></li>
+                        <li><a href = "./cart">Shopping Cart</a></li>
                         <li><a href = "products1.html">Shop</a></li>
                     </ul>
                 </div>
@@ -333,7 +341,8 @@
 <script>
     deletePromoRecord();
 </script>
-<script src="front/js/cart.js"></script><script src="js/wishlist.js"></script>
+<script src="front/js/cart.js"></script>
+<script src="js/wishlist.js"></script>
 
 </body>
 
