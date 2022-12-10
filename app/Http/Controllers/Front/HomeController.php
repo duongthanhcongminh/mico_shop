@@ -4,22 +4,25 @@ namespace App\Http\Controllers\Front;
 
 use App\Services\Blog\BlogServiceInterface;
 use App\Services\Product\ProductServiceInterface;
+use App\Repositories\ProductComment\BlogRepositoryInterface;
+
+
 
 class HomeController
 {
-    private $productServices;
-    private $blogService;
+    private ProductServiceInterface $productService;
+    private BlogServiceInterface $blogService;
 
-    public function __construct(ProductServiceInterface $productServices,
+    public function __construct(ProductServiceInterface $productService,
                                 BlogServiceInterface $blogService)
     {
-        $this->productServices = $productServices;
+        $this->productService = $productService;
         $this->blogService = $blogService;
     }
 
     public function index()
     {
-        $featuredProducts = $this->productServices->getFeaturedProducts();
+        $featuredProducts = $this->productService->getFeaturedProducts();
         $blogs = $this->blogService->getLatestBlogs();
 
         return view('front.index', compact('featuredProducts', 'blogs'));

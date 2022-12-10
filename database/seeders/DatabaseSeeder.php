@@ -133,13 +133,13 @@ class DatabaseSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             [
-                'name' => 'Men',
+                'name' => 'men',
             ],
             [
-                'name' => 'Women',
+                'name' => 'women',
             ],
             [
-                'name' => 'Kids',
+                'name' => 'kid',
             ],
         ]);
 

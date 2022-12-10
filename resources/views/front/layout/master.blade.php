@@ -5,7 +5,7 @@
     <base href="{{asset('/')}}">
     <meta charset="UTF-8">
     <meta name="description" content="Clothing at your price">
-    <meta name="keywords" content="men's clothing, women's clothing, kid's clothing">
+    <meta name="keywords" content="kid's clothing">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="front/img/logo-01.png" type="image/png" sizes="16x16">
@@ -91,9 +91,9 @@
                         <li class="{{ (request()->segment(1) == 'shop') ? 'active' : '' }}"><a href="./shop">Shop</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
-                                <li><a href="#">Men's</a></li>
-                                <li><a href="#">Women's</a></li>
-                                <li><a href="#">Kid's</a></li>
+                                <li><a href="#">Boy's</a></li>
+                                <li><a href="#">Girl's</a></li>
+                                <li><a href="#">Unisex</a></li>
                             </ul>
                         </li>
                         <li><a href="#">About Us</a></li>
@@ -112,31 +112,6 @@
                         </li>
                         <li class = "last"><a href = "#">Contact Us</a></li>
                     </ul>
-                </div>
-                <div class = "text-right">
-                    <div class="nav-right">
-                        <ul>
-                            <li class="user-icon">
-                                <a href="#" onclick = "document.getElementById('search-input').focus();">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </li>
-                            <li class="user-icon">
-                                <a href="#">
-                                    <i class="fa fa-user"></i>
-                                </a>
-                            </li>
-                            <li class="heart-icon">
-                                <a href = "#"><i class = "fa fa-heart-o"></i></a>
-                            </li>
-                            <li class="cart-icon-1">
-                                <a href = "/cart">
-                                    <i class="icon_bag_alt"></i>
-                                    <span>0</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -341,7 +316,7 @@
 <script>
     deletePromoRecord();
 </script>
-<script src="front/js/cart.js"></script>
+{{--<script src="front/js/cart.js"></script>--}}
 <script src="js/wishlist.js"></script>
 
 </body>

@@ -82,7 +82,7 @@
             <div class = "container">
                 <div class = "row">
                     <div class = "col-lg-5">
-                        <span>Women's Collection</span>
+                        <span>Girl's Collection</span>
                         <h1>NEW ARRIVALS</h1>
                         <p></p>
                         <a href = "#" class = "primary-btn">Shop Now</a>
@@ -94,7 +94,7 @@
             <div class = "container">
                 <div class = "row">
                     <div class = "col-lg-5">
-                        <span>Kid's Collection</span>
+                        <span>Unisex Collection</span>
                         <h1>NEW ARRIVALS</h1>
                         <p>
                             Slip Margot into your office for instant vintage appeal – it makes every day a little extra.
@@ -108,7 +108,7 @@
             <div class = "container">
                 <div class = "row">
                     <div class = "col-lg-5">
-                        <span>Men's Collection</span>
+                        <span>Boy's Collection</span>
                         <h1>NEW ARRIVALS</h1>
                         <p>
                             See what's new and exciting for Spring 2022! Abel Storage Bench is currently available for order at special price!
@@ -121,85 +121,85 @@
     </div>
 </section>
 
-<!-- Banner Category -->
-<div class = "banner-section spad">
-    <div class = "container-fluid">
-        <div class = "row mt-4">
-            <div class = "col-lg-4" data-aos = "fade-up">
-                <div class = "single-banner">
-                    <img src = "front/img/banner-1.png" alt = "">
-                    <div class = "inner-text">
-                        <a href = "#">Shirts</a>
-                    </div>
-                    <div class="overlay"></div>
-                </div>
-            </div>
-            <div class = "col-lg-4" data-aos = "fade-down">
-                <div class = "single-banner">
-                    <img src = "front/img/banner-2.png" alt = "">
-                    <div class = "inner-text">
-                        <a href = "#">Hoodies and Sweaters</a>
-                    </div>
-                    <div class="overlay"></div>
-                </div>
-            </div>
-            <div class = "col-lg-4" data-aos = "fade-up">
-                <div class = "single-banner">
-                    <img src = "front/img/banner-3.png" alt = "">
-                    <div class = "inner-text">
-                        <a href = "#">T-shirts</a>
-                    </div>
-                    <div class="overlay"></div>
-                </div>
-            </div>
-        </div>
-        <div class = "row mt-4">
-            <div class = "col-lg-4" data-aos = "fade-down">
-                <div class = "single-banner">
-                    <img src = "front/img/banner-4.png" alt = "">
-                    <div class = "inner-text">
-                        <a href = "#">Bottom</a>
-                    </div>
-                    <div class="overlay"></div>
-                </div>
-            </div>
-            <div class = "col-lg-4" data-aos = "fade-up">
-                <div class = "single-banner">
-                    <img src = "front/img/banner-5.png" alt = "">
-                    <div class = "inner-text">
-                        <a href = "#">Jeans</a>
-                    </div>
-                    <div class="overlay"></div>
-                </div>
-            </div>
-            <div class = "col-lg-4" data-aos = "fade-down">
-                <div class = "single-banner">
-                    <img src = "front/img/banner-6.png" alt = "">
-                    <div class = "inner-text">
-                        <a href = "#">Shoes</a>
-                    </div>
-                    <div class="overlay"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--<!-- Banner Category -->--}}
+{{--<div class = "banner-section spad">--}}
+{{--    <div class = "container-fluid">--}}
+{{--        <div class = "row mt-4">--}}
+{{--            <div class = "col-lg-4" data-aos = "fade-up">--}}
+{{--                <div class = "single-banner">--}}
+{{--                    <img src = "front/img/banner-1.png" alt = "">--}}
+{{--                    <div class = "inner-text">--}}
+{{--                        <a href = "#">Shirts</a>--}}
+{{--                    </div>--}}
+{{--                    <div class="overlay"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class = "col-lg-4" data-aos = "fade-down">--}}
+{{--                <div class = "single-banner">--}}
+{{--                    <img src = "front/img/banner-2.png" alt = "">--}}
+{{--                    <div class = "inner-text">--}}
+{{--                        <a href = "#">Hoodies and Sweaters</a>--}}
+{{--                    </div>--}}
+{{--                    <div class="overlay"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class = "col-lg-4" data-aos = "fade-up">--}}
+{{--                <div class = "single-banner">--}}
+{{--                    <img src = "front/img/banner-3.png" alt = "">--}}
+{{--                    <div class = "inner-text">--}}
+{{--                        <a href = "#">T-shirts</a>--}}
+{{--                    </div>--}}
+{{--                    <div class="overlay"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class = "row mt-4">--}}
+{{--            <div class = "col-lg-4" data-aos = "fade-down">--}}
+{{--                <div class = "single-banner">--}}
+{{--                    <img src = "front/img/banner-4.png" alt = "">--}}
+{{--                    <div class = "inner-text">--}}
+{{--                        <a href = "#">Bottom</a>--}}
+{{--                    </div>--}}
+{{--                    <div class="overlay"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class = "col-lg-4" data-aos = "fade-up">--}}
+{{--                <div class = "single-banner">--}}
+{{--                    <img src = "front/img/banner-5.png" alt = "">--}}
+{{--                    <div class = "inner-text">--}}
+{{--                        <a href = "#">Jeans</a>--}}
+{{--                    </div>--}}
+{{--                    <div class="overlay"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class = "col-lg-4" data-aos = "fade-down">--}}
+{{--                <div class = "single-banner">--}}
+{{--                    <img src = "front/img/banner-6.png" alt = "">--}}
+{{--                    <div class = "inner-text">--}}
+{{--                        <a href = "#">Shoes</a>--}}
+{{--                    </div>--}}
+{{--                    <div class="overlay"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
-</div>
+{{--</div>--}}
 
 <!-- Men's  -->
-<section class = "men-banner spad">
+<section class = "men-banner spad mt-5">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3">
                 <div class="product-large set-bg" data-setbg="front/img/man-large.jpg">
-                    <h2>Men's</h2>
+                    <h2>Boy's</h2>
                     <a href="#">Discover More</a>
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-1">
                 <div class = "product-slider owl-carousel d-flex justify-content-center align-items-center">
-                    @foreach($featuredProducts['men'] as $product)
-                        @include('front.components.product-item')
+                    @foreach($featuredProducts['boy'] as $product)
+                            @include('front.components.product-item')
                     @endforeach
                 </div>
             </div>
@@ -247,14 +247,14 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="product-large set-bg" data-setbg="front/img/women-large.jpg">
-                    <h2>Women's</h2>
+                    <h2>Girl's</h2>
                     <a href="#">Discover More</a>
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-1">
                 <div class = "product-slider owl-carousel d-flex justify-content-center align-items-center">
-                    @foreach($featuredProducts['women'] as $product)
-                        @include('front.components.product-item')
+                    @foreach($featuredProducts['girl'] as $product)
+                            @include('front.components.product-item')
                     @endforeach
                 </div>
             </div>
@@ -271,14 +271,14 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="product-large set-bg" data-setbg="front/img/man-large.jpg">
-                    <h2>Kid's</h2>
+                    <h2>Unisex</h2>
                     <a href="#">Discover More</a>
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-1">
                 <div class = "product-slider owl-carousel d-flex justify-content-center align-items-center">
-                    @foreach($featuredProducts['kid'] as $product)
-                        @include('front.components.product-item')
+                    @foreach($featuredProducts['unisex'] as $product)
+                            @include('front.components.product-item')
                     @endforeach
                 </div>
             </div>
