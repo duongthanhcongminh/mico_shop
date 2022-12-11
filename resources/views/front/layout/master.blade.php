@@ -17,7 +17,7 @@
 
     <!-- Css Styles -->
 {{--    <link href="https://unpkg.com/tailwindcss@*1.0/tailwind.min.css" rel="stylesheet">--}}
-    <link rel="stylesheet" href="front/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="front/css/bootstrap1.min.css" type="text/css">
     <link rel="stylesheet" href="front/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="front/css/themify-icons.css" type="text/css">
     <link rel="stylesheet" href="front/css/elegant-icons.css" type="text/css">
@@ -138,11 +138,28 @@
                 <div class="col-lg-3 text-right">
                     <div class="nav-right">
                         <ul>
-                            <li class="user-icon">
-                                <a href="login.html">
+
+                            <li class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-user"></i>
-                                </a>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    @if(Auth::check())
+                                        <li class="dropdown-item ml-0">
+                                            <a class="text-body" href="/account/logout">
+                                                {{ Auth::user()->name }} - Logout
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="dropdown-item ml-0">
+                                            <a class="text-body" href="/account/login">
+                                                Login
+                                            </a>
+                                        </li>
+                                    @endif
+                                </ul>
                             </li>
+
                             <li class="heart-icon">
                                 <a href = "wishlist.html"><i class = "fa fa-heart-o"></i></a>
                             </li>
@@ -318,7 +335,6 @@
 </script>
 {{--<script src="front/js/cart.js"></script>--}}
 <script src="js/wishlist.js"></script>
-
 </body>
 
 </html>

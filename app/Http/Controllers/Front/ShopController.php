@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\ProductComment\BlogRepositoryInterface;
-use App\Services\Brand\BrandServiceInterface;
+use App\Services\Brand\UserServiceInterface;
 use App\Services\Product\ProductService;
 use App\Services\Product\ProductServiceInterface;
 use App\Services\ProductCategory\ProductCategoryService;
@@ -19,12 +19,12 @@ class ShopController extends Controller
     private ProductServiceInterface $productService;
     private ProductCommentServiceInterface $productCommentService;
     private ProductCategoryServiceInterface $productCategoryService;
-    private BrandServiceInterface $brandService;
+    private UserServiceInterface $brandService;
 
-    public function __construct(ProductServiceInterface $productService,
-                                ProductCommentServiceInterface $productCommentService,
+    public function __construct(ProductServiceInterface         $productService,
+                                ProductCommentServiceInterface  $productCommentService,
                                 ProductCategoryServiceInterface $productCategoryService,
-                                BrandServiceInterface $brandService,
+                                UserServiceInterface            $brandService,
     )
     {
         $this ->productService = $productService;
