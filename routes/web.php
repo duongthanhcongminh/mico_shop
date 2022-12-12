@@ -24,9 +24,10 @@ Route::prefix('shop')->group(function(){
 });
 
 Route::prefix('cart')->group(function(){
-    Route::get('add', [App\Http\Controllers\Front\CartController::class, 'add']);
+    Route::get('add/{id}', [App\Http\Controllers\Front\CartController::class, 'add']);
     Route::get('/', [App\Http\Controllers\Front\CartController::class, 'index']);
-    Route::get('delete', [App\Http\Controllers\Front\CartController::class, 'delete']);
+    Route::get('delete/{id}', [App\Http\Controllers\Front\CartController::class, 'delete']);
+    Route::get('update/{id}/{qty}/{price}', [App\Http\Controllers\Front\CartController::class, 'update']);
 });
 
 Route::prefix('account')->group(function(){

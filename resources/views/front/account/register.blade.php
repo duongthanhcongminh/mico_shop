@@ -26,19 +26,16 @@
                             <div id="input6">
                                 <input type = "text" placeholder = "Email*" name="email" id="email">
                             </div>
-                            <div id="erroremail"></div>
                         </div>
                         <div class="input-text">
                             <div id="input7">
                                 <input type = "password" placeholder = "Password*" name="password" id="password">
                             </div>
-                            <div id="errorpassword"></div>
                         </div>
                         <div class="input-text">
                             <div id="input8">
                                 <input type = "password" placeholder = "Re-Password*" name="repassword" id="repassword">
                             </div>
-                            <div id="errorrepassword"></div>
                         </div>
                     </div>
                     <div class = "input-box register">

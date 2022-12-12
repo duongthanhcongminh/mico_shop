@@ -95,6 +95,11 @@
                 </span>
             </div>
         </div>
+        @if(session('notification'))
+            <div class="row mt-5 d-flex justify-content-center alert alert-warning" role="alert">
+                {{session('notification')}}
+            </div>
+        @endif
         <div class = "row mt-3 ">
             <div class = "col-lg-12">
                 <div class="cart-table">
@@ -102,7 +107,9 @@
                         <thead>
                             <tr>
                                 <th>IMAGE</th>
-                                <th class="">PRODUCT NAME</th>
+                                <th>PRODUCT NAME</th>
+                                <th>SIZE</th>
+                                <th>COLOR</th>
                                 <th>PRICE</th>
                                 <th>QUANTITY</th>
                                 <th>TOTAL</th>
@@ -110,23 +117,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($carts as $cart)
-                                <tr data-rowID = "{{ $cart->rowId }}">
-                                    <td class="cart-pic first-row"><img style="height: 170px;" src="/front/img/products/{{ $cart->options->images[0]->path }}" alt=""></td>
-                                    <td class="first-row">
-                                        <h5>{{ $cart->name }}</h5>
+                            @foreach($items as $item)
+                                <tr>
+                                    <td class="cart-pic first-row">
+                                        <img style="height: 170px;" src="/front/img/products/{{ $item->product_image }}" alt="">
                                     </td>
-                                    <td class="p-price first-row">{{ number_format($cart->price,2) }}</td>
-                                    <td class="qua-col first-row">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="{{ $cart->qty }}" data-rowid="{{ $cart->rowId }}">
-                                            </div>
+                                    <td class="first-row">
+                                        <h5>{{ $item->product_name }}</h5>
+                                    </td>
+                                    <td class="first-row">
+                                        <h5>{{ $item->product_size }}</h5>
+                                    </td>
+                                    <td class="first-row">
+                                        <h5>{{ $item->product_color }}</h5>
+                                    </td>
+                                    <td class="p-price first-row">{{ number_format($item->product_price,2) }}</td>
+                                    <td class="p-price first-row">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <a href="cart/update/{{$item->id}}/{{$item->qty-1}}/{{$item->product_price}}"><i class="ti-minus mr-3"></i></a>
+                                            <a> {{ $item->qty }}</a>
+                                            <a href="cart/update/{{$item->id}}/{{$item->qty+1}}/{{$item->product_price}}"><i class="ti-plus ml-3"></i></a>
                                         </div>
                                     </td>
-                                    <td class="total-price first-row">{{ number_format($cart->price * $cart->qty,2) }}</td>
+                                    <td class="total-price first-row">{{ number_format($item->total,2) }}</td>
                                     <td class="close-td first-row">
-                                        <i onclick="removeCart('{{ $cart->rowId }}')" class="ti-close"></i>
+                                        <a href="cart/delete/{{ $item->id }}"><i class="ti-close"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -137,7 +152,6 @@
                     <div class="col-lg-4">
                         <div class="cart-buttons">
                             <a href="#" class="primary-btn continue-shop">Continue shopping</a>
-                            <a href="#" class="primary-btn up-cart">Update cart</a>
                         </div>
                         <div class="discount-coupon">
                             <h6>Discount Codes</h6>

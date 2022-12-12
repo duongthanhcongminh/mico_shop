@@ -38,6 +38,11 @@
             </div>
             <div class = "col-lg-9 order-1 order-lg-2">
                 <div class="product-show-option">
+                    @if(session('notification'))
+                        <div class="row mt-5 d-flex justify-content-center alert alert-warning" role="alert">
+                            {{session('notification')}}
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-lg-7 col-md-7">
                             <form action="">
@@ -69,6 +74,7 @@
                         @endforeach
                     </div>
                 </div>
+
                 <div class="row mt-5 d-flex justify-content-center">
                     {{ $products->onEachSide(1)->links() }}
                 </div>

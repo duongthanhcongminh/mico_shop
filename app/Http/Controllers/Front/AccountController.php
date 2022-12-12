@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use DB;
 use App\Http\Controllers\Controller;
 use App\Services\User\UserServiceInterface;
 use http\Exception\BadConversionException;
@@ -64,8 +65,12 @@ class AccountController extends Controller
             'password' => bcrypt($request->password),
             'level' => 2 //mac dinh dang ki la tai khoan bth
         ];
+        $user = $this->userService->create($data);
 
-        $this->userService->create($data);
+        $cart_data = [
+            'id_user' => $user->id,
+        ];
+        DB::table('cart')->insert($cart_data);
 
         return redirect('account/login')
             ->with('notification','Register Success! Please login.');

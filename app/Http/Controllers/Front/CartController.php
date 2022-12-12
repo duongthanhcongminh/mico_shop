@@ -2,67 +2,52 @@
 
 namespace App\Http\Controllers\Front;
 
-
+use DB;
 use App\Http\Controllers\Controller;
 use App\Services\Product\ProductServiceInterface;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
+use Illuminate\Support\Facades\Auth;
+use App\Helper\CartHelper;
 
 
 class CartController extends Controller
 {
-    private $productService;
+    private $cart;
 
-    public function __construct(ProductServiceInterface $productService)
+    public function __construct(CartHelper $cart)
     {
-        $this->productService = $productService;
+        $this->cart = $cart;
     }
 
     public function index()
     {
-        $carts = Cart::content();
+        $items = $this->cart->get();
         $total = Cart::total();
         $subtotal = Cart::subtotal();
 
-        return view('front.shop.cart',compact('carts','total','subtotal'));
+        return view('front.shop.cart',compact('items','total','subtotal'));
     }
 
-    public function add(Request $request)
+    public function add($id)
     {
-        if ($request->ajax()){
-            $product = $this->productService->find($request->productId);
+        $data = $this->cart->add($id);
+        if ($data['is_success'])
+            return back()->with('notification',$data['message']);
 
-            $response['cart'] = Cart::add([
-                'id' => $product->id,
-                'name' => $product->name,
-                'qty' => 1,
-                'price' => $product->discount ?? $product->price,
-                'weight' => $product->weight ?? 0,
-                'options' =>['images' => $product->productImages,],
-            ]);
-
-            $response['count'] = Cart::count();
-            $response['total'] = Cart::total();
-
-            return $response;
-        }
-
-        return back();
+        return redirect('account/login')->with('notification',$data['message']);
     }
 
-    public function delete(Request $request)
+    public function delete($id)
     {
-        if ($request->ajax()){
-            $response['cart'] = Cart::remove($request->rowId);
+        $data = $this->cart->delete($id);
 
-            $response['count'] = Cart::count();
-            $response['total'] = Cart::total();
-            $response['subtotal'] = Cart::subtotal();
+        return back()->with('notification',$data['message']);
+    }
 
-            return $response;
-        }
-
+    public function update($id, $qty, $price)
+    {
+        $this->cart->update($id, $qty, $price);
         return back();
     }
 }

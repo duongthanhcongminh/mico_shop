@@ -4614,7 +4614,7 @@ details[open] summary ~ * {
 }
 
 .cart-table table tr td.p-price {
-    width: 16%;
+    width: 10%;
 }
 
 .cart-table table tr td.p-price,
@@ -4625,7 +4625,7 @@ details[open] summary ~ * {
 }
 
 .cart-table table tr td.qua-col {
-    width: 16%;
+    width: 15%;
 }
 
 .cart-table table tr td.qua-col .quantity {
@@ -4637,13 +4637,13 @@ details[open] summary ~ * {
     justify-content: center;
 }
 
-.cart-table table tr td.qua-col .pro-qty {
-    width: 123px;
-    height: 46px;
-    border: 2px solid #ebebeb;
-    padding: 0 15px;
-    float: left;
-}
+/*.cart-table table tr td.qua-col .pro-qty {*/
+/*    width: 123px;*/
+/*    height: 46px;*/
+/*    border: 2px solid #ebebeb;*/
+/*    padding: 0 15px;*/
+/*    float: left;*/
+/*}*/
 
 .cart-table table tr td.qua-col .pro-qty .qtybtn {
     font-size: 24px;
