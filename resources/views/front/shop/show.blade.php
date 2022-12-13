@@ -101,11 +101,11 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="pd-size_choose">
+                                <div class="pd-size-choose">
                                     @foreach (array_unique(array_column($product->productDetails->toArray(),'size')) as $productSize)
                                         <div class="sc-item">
                                             <input type="radio" id="sc-{{ $productSize }}">
-                                            <label for ="sc-{{ $productSize }}">{{ $productSize }}"</label>
+                                            <label for ="sc-{{ $productSize }}">{{ $productSize }}</label>
                                         </div>
                                     @endforeach
                                 </div>
@@ -135,9 +135,9 @@
             <div class="product-tab">
                 <div class="tab-item">
                 <ul class="nav" role="tablist">
-                    <li><a class="active" href="#tab-1" data-toggle="tab" role="tab">DESCRIPTION</a></li>
-                    <li><a href="#tab-2" data-toggle="tab" role="tab">SPECIFICATION</a></li>
-                    <li><a href="#tab-3" data-toggle="tab" role="tab">CUSTOMER REVIEWS ({{count( $product->productComments)}})</a></li>
+                    <li><a href="#tab-1" class="active"  aria-controls="tab-1" data-toggle="tab" role="tab" aria-selected="true">DESCRIPTION</a></li>
+                    <li><a href="#tab-2" aria-controls="tab-2" data-toggle="tab" role="tab" aria-selected="false">SPECIFICATION</a></li>
+                    <li><a href="#tab-3" aria-controls="tab-3" data-toggle="tab" role="tab" aria-selected="false">CUSTOMER REVIEWS ({{count( $product->productComments)}})</a></li>
                 </ul>
                 </div>
                 <div class="tab-item-content">

@@ -137,41 +137,74 @@
                 </div>
                 <div class="col-lg-3 text-right">
                     <div class="nav-right">
-                        <ul>
-
-                            <li class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-user"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    @if(Auth::check())
-                                        <li class="dropdown-item ml-0">
-                                            <a class="text-body" href="/account/logout">
-                                                {{ Auth::user()->name }} - Logout
-                                            </a>
-                                        </li>
-                                    @else
-                                        <li class="dropdown-item ml-0">
-                                            <a class="text-body" href="/account/login">
-                                                Login
-                                            </a>
-                                        </li>
-                                    @endif
-                                </ul>
-                            </li>
-
-                            <li class="heart-icon">
-                                <a href = "wishlist.html"><i class = "fa fa-heart-o"></i></a>
-                            </li>
-                            <li class="cart-icon">
-                                <a href = "./cart">
-                                    <i class="icon_bag_alt"></i>
-                                    <span class="cart-count">{{ Cart::count() }}</span>
-                                </a>
-                                <div class="cart-hover">
-                                    <div class="select-items">
-                                        <table>
-                                            <tbody>
+                        @if(Auth::check())
+                            <ul class="d-flex justify-content-center align-items-center">
+                                <li class="heart-icon">
+                                    <a href = "wishlist.html"><i class = "fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="cart-icon">
+                                    <a href = "./cart">
+                                        <i class="icon_bag_alt"></i>
+                                        <span class="cart-count">{{ Cart::count() }}</span>
+                                    </a>
+                                    <div class="cart-hover">
+                                        <div class="select-items">
+                                            <table>
+                                                <tbody>
+                                                    @foreach(Cart::content() as $cart)
+                                                        <tr data-rowId = "{{$cart->rowId}}">
+                                                            <td class="si-pic"><img style="height: 70px;" src="front/img/products/{{ $cart->options->images[0]->path }}" alt=""></td>
+                                                            <td class="si-text">
+                                                                <div class="product-selected">
+                                                                    <p>${{ $cart->price }} x {{ $cart->qty }}</p>
+                                                                    <h6>{{ $cart->name }}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="si-close">
+                                                                <i onclick="removeCart('{{ $cart->rowId }}')" class="ti-close"></i>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="select-total">
+                                            <span>total:</span>
+                                            <h5>${{ Cart::total() }}</h5>
+                                        </div>
+                                        <div class="select-button">
+                                            <a href="./cart" class="primary-btn view-card">VIEW CARD</a>
+                                            <a href="check-out.html" class="primary-btn checkout-card">CHECK OUT</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="text-body" href="/account/logout">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="d-flex justify-content-center align-items-center">
+                                    <li class="dropdown-item">
+                                        <a class="bg-light">
+                                            _{{ Auth::user()->name }}_
+                                        </a>
+                                    </li>
+                            </ul>
+                        @else
+                            <ul class="d-flex justify-content-center align-items-center">
+                                <li class="heart-icon">
+                                    <a href = "wishlist.html"><i class = "fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="cart-icon">
+                                    <a href = "./cart">
+                                        <i class="icon_bag_alt"></i>
+                                        <span class="cart-count">{{ Cart::count() }}</span>
+                                    </a>
+                                    <div class="cart-hover">
+                                        <div class="select-items">
+                                            <table>
+                                                <tbody>
                                                 @foreach(Cart::content() as $cart)
                                                     <tr data-rowId = "{{$cart->rowId}}">
                                                         <td class="si-pic"><img style="height: 70px;" src="front/img/products/{{ $cart->options->images[0]->path }}" alt=""></td>
@@ -186,20 +219,26 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="select-total">
+                                            <span>total:</span>
+                                            <h5>${{ Cart::total() }}</h5>
+                                        </div>
+                                        <div class="select-button">
+                                            <a href="./cart" class="primary-btn view-card">VIEW CARD</a>
+                                            <a href="check-out.html" class="primary-btn checkout-card">CHECK OUT</a>
+                                        </div>
                                     </div>
-                                    <div class="select-total">
-                                        <span>total:</span>
-                                        <h5>${{ Cart::total() }}</h5>
-                                    </div>
-                                    <div class="select-button">
-                                        <a href="./cart" class="primary-btn view-card">VIEW CARD</a>
-                                        <a href="check-out.html" class="primary-btn checkout-card">CHECK OUT</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                                </li>
+                                <li>
+                                    <a class="text-body" href="/account/login">
+                                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </div>

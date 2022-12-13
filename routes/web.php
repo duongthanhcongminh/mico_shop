@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//Front (Client)
 Route::get('/', [\App\Http\Controllers\Front\HomeController::class,'index']);
 
 
@@ -38,3 +40,9 @@ Route::prefix('account')->group(function(){
     Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);
     Route::post('register',[\App\Http\Controllers\Front\AccountController::class,'postRegister']);
 });
+
+// Dashboard (Admin)
+Route::prefix('admin')->group(function(){
+    Route::resource('user',\App\Http\Controllers\Admin\UserController::class);
+});
+
