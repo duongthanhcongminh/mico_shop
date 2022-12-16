@@ -131,7 +131,7 @@
                                     <td class="first-row">
                                         <h5>{{ $item->product_color }}</h5>
                                     </td>
-                                    <td class="p-price first-row">{{ number_format($item->product_price,2) }}</td>
+                                    <td class="p-price first-row">${{ number_format($item->product_price,2) }}</td>
                                     <td class="p-price first-row">
                                         <div class="d-flex align-items-center justify-content-center">
                                             <a href="cart/update/{{$item->id}}/{{$item->qty-1}}/{{$item->product_price}}"><i class="ti-minus mr-3"></i></a>
@@ -139,7 +139,7 @@
                                             <a href="cart/update/{{$item->id}}/{{$item->qty+1}}/{{$item->product_price}}"><i class="ti-plus ml-3"></i></a>
                                         </div>
                                     </td>
-                                    <td class="total-price first-row">{{ number_format($item->total,2) }}</td>
+                                    <td class="total-price first-row">${{ number_format($item->total,2) }}</td>
                                     <td class="close-td first-row">
                                         <a href="cart/delete/{{ $item->id }}"><i class="ti-close"></i></a>
                                     </td>
@@ -167,7 +167,7 @@
                                 <li class="subtotal">Subtotal <span>${{ $total }}</span></li>
                                 <li class="cart-total">Total <span>${{ $subtotal }}</span></li>
                             </ul>
-                            <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                            <a href="./checkout" class="proceed-btn">PROCEED TO CHECK OUT</a>
                         </div>
                     </div>
                 </div>

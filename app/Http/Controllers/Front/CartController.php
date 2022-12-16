@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Front;
 use DB;
 use App\Http\Controllers\Controller;
 use App\Services\Product\ProductServiceInterface;
-use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Helper\CartHelper;
 
@@ -50,4 +50,15 @@ class CartController extends Controller
         $this->cart->update($id, $qty, $price);
         return back();
     }
+
+    public function get_total_price(){
+        $this->cart->get_total_price();
+         return back();
+    }
+
+    public function get_total_quantity(){
+        $this->cart->get_total_quantity();
+        return back();
+    }
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Utilities\Constant;
 use DB;
 use App\Http\Controllers\Controller;
 use App\Services\User\UserServiceInterface;
@@ -28,7 +29,7 @@ class AccountController extends Controller
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
-            'level'=> 2, //mức độ tài khoản
+            'level'=> 5, //mức độ tài khoản
         ];
 
         $remember = $request->remember;
@@ -63,7 +64,12 @@ class AccountController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'level' => 2 //mac dinh dang ki la tai khoan bth
+            'level' => [Constant::user_level_customer], //mac dinh dang ki la tai khoan bth
+            'country' => $request->country,
+            'street_address' => $request->street_address,
+            'town_city' => $request->town_city,
+            'phone' => $request->phone,
+
         ];
         $user = $this->userService->create($data);
 

@@ -84,22 +84,22 @@ class CartHelper
     }
 
 
-    private function get_total_price(){
-        $t = 0;
+    public function get_total_price(){
+        $tp = 0;
 
         foreach ($this->cart_items as $cart_item){
-            $t += $cart_item['price'] * $cart_item['quantity'];
+            $tp += $cart_item['price'] * $cart_item['quantity'];
         }
-        return $t;
+        return $tp;
     }
 
-    private function get_total_quantity(){
-        $t = 0;
+    public function get_total_quantity(){
+        $tq = 0;
 
         foreach ($this->cart_items as $cart_item){
-            $t += $cart_item['quantity'];
+            $tq += $cart_item['quantity'];
         }
-        return $t;
+        return $tq;
     }
 
 

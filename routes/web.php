@@ -32,6 +32,14 @@ Route::prefix('cart')->group(function(){
     Route::get('update/{id}/{qty}/{price}', [App\Http\Controllers\Front\CartController::class, 'update']);
 });
 
+Route::prefix('checkout')->group(function() {
+    Route::get('', [\App\Http\Controllers\Front\CheckOutController::class, 'index']);
+    Route::post('/', [\App\Http\Controllers\Front\CheckOutController::class, 'addOrder']);
+    Route::get('/result', [\App\Http\Controllers\Front\CheckOutController::class, 'result']);
+
+    Route::get('/vnPayCheck', [\App\Http\Controllers\Front\CheckOutController::class, 'vnPayCheck']);
+});
+
 Route::prefix('account')->group(function(){
     Route::get('login',[\App\Http\Controllers\Front\AccountController::class,'login']);
     Route::post('login',[\App\Http\Controllers\Front\AccountController::class,'checkLogin']);
@@ -42,7 +50,15 @@ Route::prefix('account')->group(function(){
 });
 
 // Dashboard (Admin)
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
+    Route::redirect('','admin/user');
     Route::resource('user',\App\Http\Controllers\Admin\UserController::class);
+
+    Route::prefix('login')->group(function (){
+        Route::get('',[\App\Http\Controllers\Admin\HomeController::class,'getLogin'])->withoutMiddleware('CheckAdminLogin');
+        Route::post('',[\App\Http\Controllers\Admin\HomeController::class,'postLogin'])->withoutMiddleware('CheckAdminLogin');
+    });
+
+    Route::get('logout',[\App\Http\Controllers\Admin\HomeController::class,'logout']);
 });
 

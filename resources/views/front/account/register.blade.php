@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 order-3 order-lg-1 img">
-                    <img src="front/img/man-large.jpg">
+                    <img style="max-width: 100%;height: auto" src="front/img/man-large.jpg">
                 </div>
 
                 <form action="" method="post"
@@ -23,18 +23,38 @@
                             </div>
                         </div>
                         <div class="input-text">
-                            <div id="input6">
+                            <div id="input5">
                                 <input type = "text" placeholder = "Email*" name="email" id="email">
                             </div>
                         </div>
                         <div class="input-text">
-                            <div id="input7">
+                            <div id="input6">
                                 <input type = "password" placeholder = "Password*" name="password" id="password">
                             </div>
                         </div>
                         <div class="input-text">
-                            <div id="input8">
+                            <div id="input7">
                                 <input type = "password" placeholder = "Re-Password*" name="repassword" id="repassword">
+                            </div>
+                        </div>
+                        <div class="input-text">
+                            <div id="input8">
+                                <input type = "text" placeholder = "Country*" name="country" id="country">
+                            </div>
+                        </div>
+                        <div class="input-text">
+                            <div id="input9">
+                                <input type = "text" placeholder = "Street Address*" name="street_address" id="street_address">
+                            </div>
+                        </div>
+                        <div class="input-text">
+                            <div id="input10">
+                                <input type = "text" placeholder = "Town/city*" name="town_city" id="town_city">
+                            </div>
+                        </div>
+                        <div class="input-text">
+                            <div id="input11">
+                                <input type = "text" placeholder = "Phone*" name="phone" id="phone">
                             </div>
                         </div>
                     </div>

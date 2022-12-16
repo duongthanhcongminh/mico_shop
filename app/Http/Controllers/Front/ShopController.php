@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\ProductComment\BlogRepositoryInterface;
+use App\Repositories\ProductComment\ProductCommentRepositoryInterface;
 use App\Services\Brand\BrandServiceInterface;
 use App\Services\Product\ProductService;
 use App\Services\Product\ProductServiceInterface;

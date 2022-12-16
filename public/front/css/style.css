@@ -4241,7 +4241,7 @@ a.nutdownload:hover{
 .information{
 	width: 100%;
 }
-.information #input4 {width: 100%; height: 50px;
+.information #input4,.information #input9,.information #input10,.information #input11 {width: 100%; height: 50px;
 	border: 1px solid #ebebeb;
 	border-radius: 5px;
 	padding-left: 10px;}
