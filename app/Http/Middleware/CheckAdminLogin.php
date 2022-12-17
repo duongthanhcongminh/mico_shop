@@ -19,6 +19,12 @@ class CheckAdminLogin
     public function handle(Request $request, Closure $next)
     {
         //neu chua dang nhap: chuyen huong sang trang login
+        if (Auth::guest()){
+            return redirect()->guest('admin/login');
+        }
+
+
+        //neu da dang nhap nhung sai level: dang xuat la dang nhap lai
         if (Auth::user()->level != Constant::user_level_manager && Auth::user()->level != Constant::user_level_admin ) {
             Auth::logout();
 

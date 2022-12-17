@@ -8,7 +8,7 @@
     <meta name="keywords" content="kid's clothing">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="front/img/logo-01.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="front/img/logo-02.png" type="image/png" sizes="16x16">
     <title>@yield('title') | MiCo Shop</title>
 
 
@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
-                        <a href="/"><img src="front/img/logo-01.png"></a>
+                        <a href="/"><img src="front/img/logo-02.png"></a>
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-7">
