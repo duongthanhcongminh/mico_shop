@@ -28,15 +28,15 @@ class Constant
     ];
 
     //User
-    const user_level_manager = 0;
-    const user_level_admin = 1;
+    const user_level_admin = 0;
+    const user_level_manager = 1;
     const user_level_sale = 2;
     const user_level_warehouse = 3;
     const user_level_delivery = 4;
     const user_level_customer = 5;
     public static $user_level = [
-        self::user_level_manager => 'manager',
         self::user_level_admin => 'admin',
+        self::user_level_manager => 'manager',
         self::user_level_sale => 'sale',
         self::user_level_warehouse => 'warehouse',
         self::user_level_delivery => 'delivery',

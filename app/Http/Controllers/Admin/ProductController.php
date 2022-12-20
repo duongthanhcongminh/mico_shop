@@ -3,16 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\Brand\BrandServiceInterface;
 use App\Services\Product\ProductServiceInterface;
+use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     private $productService;
+    private $brandService;
+    private $producCategoryService;
 
-    public function __construct(ProductServiceInterface $productService)
+    public function __construct(ProductServiceInterface $productService,
+                                BrandServiceInterface $brandService,
+                                ProductCategoryServiceInterface $productCategoryService)
     {
         $this->productService = $productService;
+        $this->brandService = $brandService;
+        $this->producCategoryService = $productCategoryService;
     }
     /**
      * Display a listing of the resource.
@@ -32,7 +40,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $brands = $this->brandService->all();
+        $productCategories = $this->producCategoryService->all();
+
+        return view('admin.product.create',compact('brands','productCategories'));
     }
 
     /**
@@ -43,7 +54,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['qty'] = 0; //Khi tao moi san pham, so luong auto = 0
+        $product = $this->productService->create($data);
+
+        return redirect('admin/product/' . $product->id);
     }
 
     /**
@@ -67,7 +82,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = $this->productService ->find($id);
+        $brands = $this->brandService ->all();
+        $productCategories = $this->producCategoryService ->all();
+
+        return view('admin.product.edit',compact('product','brands','productCategories'));
     }
 
     /**
@@ -79,7 +98,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $this->productService->update($data,$id);
+
+        return redirect('admin/product/'.$id);
     }
 
     /**
@@ -90,6 +112,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->productService->delete($id);
+
+        return redirect('admin/product');
     }
 }
