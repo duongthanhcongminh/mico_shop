@@ -12,7 +12,7 @@
                     <img style="max-width: 100%;height: auto" src="front/img/man-large.jpg">
                 </div>
 
-                <form action="" method="post"
+                <form method="post" action="/account/register"
                     class="col-lg-4 order-1 order-lg-2 information">
                     @csrf
                     <h3>Register an account</h3>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class = "input-box register">
-                        <button id="bt4" onclick = "return postRegister();" type = "submit">REGISTER</button>
+                        <button id="bt4" type = "submit">REGISTER</button>
                         <button id="bt5"><a href = "/account/login">LOG IN</a></button>
                     </div>
                 </form>

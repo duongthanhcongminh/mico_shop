@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\User;
+use App\Services\Order\OrderServiceInterface;
+use App\Services\OrderDetail\OrderDetailServiceInterface;
+use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use App\Utilities\Constant;
 use DB;
 use App\Http\Controllers\Controller;
@@ -13,15 +17,34 @@ use Illuminate\Support\Facades\Auth;
 class AccountController extends Controller
 {
     private $userService;
+    private ProductCategoryServiceInterface $productCategoryService;
+    private $orderService;
+    private $orderDetailService;
 
-    public function __construct(UserServiceInterface $userService)
+
+    public function __construct(UserServiceInterface $userService,
+                                ProductCategoryServiceInterface $productCategoryService,
+                                OrderServiceInterface $orderService,OrderDetailServiceInterface $orderDetailService)
     {
         $this->userService = $userService;
+        $this->productCategoryService = $productCategoryService;
+        $this->orderService = $orderService;
+        $this->orderDetailService= $orderDetailService;
     }
+
+    public function show()
+    {
+        $categories = $this->productCategoryService->all();
+
+        return view('front.account.show',compact('categories'));
+    }
+
+
 
     public function login()
     {
-        return view('front.account.login');
+        $categories = $this->productCategoryService->all();
+        return view('front.account.login', compact('categories'));
     }
 
     public function checkLogin(Request $request)
@@ -51,7 +74,9 @@ class AccountController extends Controller
 
     public function register()
     {
-        return view('front.account.register');
+        $categories = $this->productCategoryService->all();
+        return view('front.account.register',compact('categories'));
+
     }
 
     public function postRegister(Request $request)
@@ -60,17 +85,18 @@ class AccountController extends Controller
             return back()
                 ->with('notification','ERROR: Confirm password does not match');
         }
+
         $data = [
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'level' => [Constant::user_level_customer], //mac dinh dang ki la tai khoan bth
+            'level' => Constant::user_level_customer, //mac dinh dang ki la tai khoan bth
             'country' => $request->country,
             'street_address' => $request->street_address,
             'town_city' => $request->town_city,
-            'phone' => $request->phone,
-
+            'phone' => $request->phone
         ];
+
         $user = $this->userService->create($data);
 
         $cart_data = [
@@ -80,5 +106,50 @@ class AccountController extends Controller
 
         return redirect('account/login')
             ->with('notification','Register Success! Please login.');
+    }
+
+    public function myOrderIndex()
+    {
+        $categories = $this->productCategoryService->all();
+
+        $user_id = Auth::user()->id;
+        $orders = DB::table('orders')->where('user_id', $user_id)->get();
+        $orderDetails = [];
+
+        foreach ($orders as $order){
+            $datas = DB::table('order_details')->where('order_id', $order->id)->get();
+            foreach($datas as $data) {
+                array_push($orderDetails, $data);
+            }
+        }
+
+        return view('front.account.my-order.index',compact('categories','orders', 'orderDetails'));
+    }
+
+    public function myOrderShow($id)
+    {
+        $categories = $this->productCategoryService->all();
+
+        return view('front.account.my-order.show',compact('categories'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+
+    public function myInfoIndex()
+    {
+        $user_id = Auth::user()->id;
+        $user = DB::table('users')->where('id', $user_id)->get();
+        $categories = $this->productCategoryService->all();
+        return view('front.account.info', compact('categories','user'));
+    }
+
+    public function myInfoEdit(User $user)
+    {
+        return view('front.account.edit-info',compact('user'));
     }
 }

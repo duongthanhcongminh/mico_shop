@@ -3286,6 +3286,10 @@ section.blog{
 	visibility: hidden;
 }
 
+.product-details .pd-color .pd-color-choose .cc-item input:checked +label{
+    border: 2px solid #3F3F3F;
+}
+
 .product-details .pd-color .pd-color-choose .cc-item label {
 	height: 20px;
 	width: 20px;
@@ -3339,6 +3343,10 @@ section.blog{
 .product-details .pd-size-choose .sc-item input {
     position: absolute;
     visibility: hidden;
+}
+
+.product-details .pd-size-choose .sc-item input:checked +label{
+    border: 2px solid #3F3F3F;
 }
 
 .product-details .pd-size-choose .sc-item label {

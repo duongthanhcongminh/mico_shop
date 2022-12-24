@@ -18,7 +18,7 @@
     </div>
     <!--breadcrumb section end-->
 <!-- Banner header -->
-<div id = "banner" style = "background-image: url('https://image.stern.de/8912638/t/fz/v2/w1440/r1.3333/-/25-jahre-friends.jpg')">
+<div id = "banner" style = "background-image: url('https://as1.ftcdn.net/v2/jpg/02/38/34/86/1000_F_238348699_TCymXZjtsn1TP68uKKfvlY4jHLWVACiT.jpg')">
     <div id = "banner-text">
         <h2>Products</h2>
     </div>

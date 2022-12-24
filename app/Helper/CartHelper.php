@@ -39,6 +39,7 @@ class CartHelper
 
             $data = [
                 'id_cart' => $cart[0]->id,
+                'product_id' => $product->id,
                 'product_image' => $product_image[0]->path,
                 'product_name' => $product->name,
                 'product_size' => $size,
@@ -84,23 +85,6 @@ class CartHelper
     }
 
 
-    public function get_total_price(){
-        $tp = 0;
-
-        foreach ($this->cart_items as $cart_item){
-            $tp += $cart_item['price'] * $cart_item['quantity'];
-        }
-        return $tp;
-    }
-
-    public function get_total_quantity(){
-        $tq = 0;
-
-        foreach ($this->cart_items as $cart_item){
-            $tq += $cart_item['quantity'];
-        }
-        return $tq;
-    }
 
 
 }

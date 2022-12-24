@@ -82,7 +82,7 @@
             <div class = "container">
                 <div class = "row">
                     <div class = "col-lg-5">
-                        <span>Girl's Collection</span>
+                        <h4>Girl's Collection</h4>
                         <h1>NEW ARRIVALS</h1>
                         <p></p>
                         <a href = "#" class = "primary-btn">Shop Now</a>
@@ -94,10 +94,10 @@
             <div class = "container">
                 <div class = "row">
                     <div class = "col-lg-5">
-                        <span>Unisex Collection</span>
+                        <h4>Unisex Collection</h4>
                         <h1>NEW ARRIVALS</h1>
                         <p>
-                            Slip Margot into your office for instant vintage appeal – it makes every day a little extra.
+
                         </p>
                         <a href = "#" class = "primary-btn">Shop Now</a>
                     </div>
@@ -108,10 +108,10 @@
             <div class = "container">
                 <div class = "row">
                     <div class = "col-lg-5">
-                        <span>Boy's Collection</span>
+                        <h4>Boy's Collection</h4>
                         <h1>NEW ARRIVALS</h1>
                         <p>
-                            See what's new and exciting for Spring 2022! Abel Storage Bench is currently available for order at special price!
+
                         </p>
                         <a href = "#" class = "primary-btn">Shop Now</a>
                     </div>
@@ -270,7 +270,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3">
-                <div class="product-large set-bg" data-setbg="front/img/man-large.jpg">
+                <div class="product-large set-bg" data-setbg="front/img/unisex-large.jpg">
                     <h2>Unisex</h2>
                     <a href="#">Discover More</a>
                 </div>
@@ -286,71 +286,71 @@
     </div>
 </section>
 <!-- Shop by Brand -->
-<div class = "brand-section spad">
-    <div class = "row">
-        <h2 class = "mobile-head">Shop by Brand</h2>
-        <div class = "col-lg-4 exp">
-            <div class = "single-banner">
-                <img src = "front/img/banner-brand1.jpg" alt = "" data-aos = "fade-up">
-                <div class = "inner-text">
-                    <a href = "#">BRAND1</a>
-                </div>
-                <div class = "overlay"></div>
-            </div>
-        </div>
-        <div class = "col-lg-4 exp1 exptext" data-aos = "fade-down">
-            <h2>Shop by Brand</h2>
-        </div>
-        <div class = "col-lg-4 exp" data-aos = "fade-up">
-            <div class = "single-banner">
-                <img src = "front/img/banner-brand2.jpg" alt = "">
-                <div class = "inner-text">
-                    <a href = "#">BRAND2</a>
-                </div>
-                <div class = "overlay"></div>
-            </div>
-        </div>
-    </div>
-    <div class = "row">
-        <div class = "col-lg-4 exp1" data-aos = "fade-down"></div>
-        <div class = "col-lg-4 exp exp2" data-aos = "fade-up">
-            <div class = "single-banner">
-                <img src = "front/img/banner-brand3.jpg" alt = "">
-                <div class = "inner-text">
-                    <a href = "#">BRAND3</a>
-                </div>
-                <div class = "overlay"></div>
-            </div>
-        </div>
-        <div class = "col-lg-4 exp1" data-aos = "fade-down"></div>
-    </div>
-</div>
+{{--<div class = "brand-section spad">--}}
+{{--    <div class = "row">--}}
+{{--        <h2 class = "mobile-head">Shop by Brand</h2>--}}
+{{--        <div class = "col-lg-4 exp">--}}
+{{--            <div class = "single-banner">--}}
+{{--                <img src = "front/img/banner-brand1.jpg" alt = "" data-aos = "fade-up">--}}
+{{--                <div class = "inner-text">--}}
+{{--                    <a href = "#">BRAND1</a>--}}
+{{--                </div>--}}
+{{--                <div class = "overlay"></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class = "col-lg-4 exp1 exptext" data-aos = "fade-down">--}}
+{{--            <h2>Shop by Brand</h2>--}}
+{{--        </div>--}}
+{{--        <div class = "col-lg-4 exp" data-aos = "fade-up">--}}
+{{--            <div class = "single-banner">--}}
+{{--                <img src = "front/img/banner-brand2.jpg" alt = "">--}}
+{{--                <div class = "inner-text">--}}
+{{--                    <a href = "#">BRAND2</a>--}}
+{{--                </div>--}}
+{{--                <div class = "overlay"></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class = "row">--}}
+{{--        <div class = "col-lg-4 exp1" data-aos = "fade-down"></div>--}}
+{{--        <div class = "col-lg-4 exp exp2" data-aos = "fade-up">--}}
+{{--            <div class = "single-banner">--}}
+{{--                <img src = "front/img/banner-brand3.jpg" alt = "">--}}
+{{--                <div class = "inner-text">--}}
+{{--                    <a href = "#">BRAND3</a>--}}
+{{--                </div>--}}
+{{--                <div class = "overlay"></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class = "col-lg-4 exp1" data-aos = "fade-down"></div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 
 <!-- Instagram -->
 <div class = "instagram-photo">
-    <div class = "insta-item set-bg" data-setbg = "front/img/products/1/insta1.jpg">
+    <div class = "insta-item set-bg" data-setbg = "front/img/insta1.jpg">
         <div class = "inside-text">
             <i class = "fa fa-instagram">
                 <p><a href = "#">Instagram</a></p>
             </i>
         </div>
     </div>
-    <div class = "insta-item set-bg" data-setbg = "front/img/products/1/insta2.jpg">
+    <div class = "insta-item set-bg" data-setbg = "front/img/insta2.jpg">
         <div class = "inside-text">
             <i class = "fa fa-instagram">
                 <p><a href = "#">Instagram</a></p>
             </i>
         </div>
     </div>
-    <div class = "insta-item set-bg" data-setbg = "front/img/products/1/insta3.jpg">
+    <div class = "insta-item set-bg" data-setbg = "front/img/insta3.jpg">
         <div class = "inside-text">
             <i class = "fa fa-instagram">
                 <p><a href = "#">Instagram</a></p>
             </i>
         </div>
     </div>
-    <div class = "insta-item set-bg" data-setbg = "front/img/products/1/insta4.jpg">
+    <div class = "insta-item set-bg" data-setbg = "front/img/insta4.jpg">
         <div class = "inside-text">
             <i class = "fa fa-instagram">
                 <p><a href = "#">Instagram</a></p>

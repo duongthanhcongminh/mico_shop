@@ -27,6 +27,7 @@
                 <form method="post" action="">
                     @csrf
                 <div class = "row">
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id ?? '' }}">
                     <div class = "col-lg-12 input-all">
                         <label class="font-weight-bold">First Name*</label>
                         <div class = "input-form">
@@ -105,7 +106,7 @@
                 </div>
 
                 <div class = "input-checkbox">
-                    <input type = "checkbox" id = "cc13" onblur = "checkdelivery();">
+                    <input type = "checkbox" id = "cc13">
                     <p>I agree to <a href = "terms.html">Terms and Conditions</a>.
                     See <a href = "terms.html">Privacy and Cookie Policy</a> for information on how we use the information
                     you provide to us.</p>

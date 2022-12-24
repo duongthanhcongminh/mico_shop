@@ -29,6 +29,8 @@
     <script src="https://kit.fontawesome.com/477e627b99.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="front/css/owl.video.css">
     <link rel="stylesheet" href="front/css/style.css" type="text/css">
+    <link href="./dashboard/main.css" rel="stylesheet">
+    <link href="./dashboard/my_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -91,12 +93,12 @@
                         <li class="{{ (request()->segment(1) == 'shop') ? 'active' : '' }}"><a href="./shop">Shop</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
-                                <li><a href="#">Boy's</a></li>
-                                <li><a href="#">Girl's</a></li>
-                                <li><a href="#">Unisex</a></li>
+                                @foreach($categories as $category)
+                                    <li><a href="shop/category/{{ $category->name }}">{{$category->name}}</a></li>
+                                @endforeach
                             </ul>
                         </li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="/about">About Us</a></li>
                         <li><a href="#">FAQs</a>
                             <ul class="dropdown" style="width: 200px; padding: 10px 12px">
                                 <li><a href="#">Helps & FAQs</a></li>
@@ -110,7 +112,7 @@
                                 <li><a href="#">Lifestyle</a></li>
                             </ul>
                         </li>
-                        <li class = "last"><a href = "#">Contact Us</a></li>
+                        <li class = "last"><a href = "./account/my-order">My Order</a></li>
                     </ul>
                 </div>
             </div>
@@ -140,7 +142,7 @@
                         @if(Auth::check())
                             <ul class="d-flex justify-content-center align-items-center">
                                 <li class="heart-icon">
-                                    <a href = "wishlist.html"><i class = "fa fa-heart-o"></i></a>
+                                    <a href = "/account/info"><i class = "fa fa-user"></i></a>
                                 </li>
                                 <li class="cart-icon">
                                     <a href = "./cart">
@@ -194,7 +196,7 @@
                         @else
                             <ul class="d-flex justify-content-center align-items-center">
                                 <li class="heart-icon">
-                                    <a href = "wishlist.html"><i class = "fa fa-heart-o"></i></a>
+                                    <a href = "/account/login"><i class = "fa fa-user"></i></a>
                                 </li>
                                 <li class="cart-icon">
                                     <a href = "./cart">
@@ -205,26 +207,23 @@
                                         <div class="select-items">
                                             <table>
                                                 <tbody>
-                                                @foreach(Cart::content() as $cart)
-                                                    <tr data-rowId = "{{$cart->rowId}}">
-                                                        <td class="si-pic"><img style="height: 70px;" src="front/img/products/{{ $cart->options->images[0]->path }}" alt=""></td>
-                                                        <td class="si-text">
-                                                            <div class="product-selected">
-                                                                <p>${{ $cart->price }} x {{ $cart->qty }}</p>
-                                                                <h6>{{ $cart->name }}</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td class="si-close">
-                                                            <i onclick="removeCart('{{ $cart->rowId }}')" class="ti-close"></i>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
+{{--                                                @foreach($items as $item)--}}
+{{--                                                    <tr>--}}
+{{--                                                        <td class="si-pic"><img style="height: 70px;" src="front/img/products/{{ $item->product_image }}" alt=""></td>--}}
+{{--                                                        <td class="si-text">--}}
+{{--                                                            <div class="product-selected">--}}
+{{--                                                                <p>${{ $item->price }} x {{ $item->qty }}</p>--}}
+{{--                                                                <h6>{{ $item->name }}</h6>--}}
+{{--                                                            </div>--}}
+{{--                                                        </td>--}}
+{{--                                                    </tr>--}}
+{{--                                                @endforeach--}}
                                                 </tbody>
                                             </table>
                                         </div>
                                         <div class="select-total">
                                             <span>total:</span>
-                                            <h5>${{ Cart::total() }}</h5>
+{{--                                            <h5>${{ $total }}</h5>--}}
                                         </div>
                                         <div class="select-button">
                                             <a href="./cart" class="primary-btn view-card">VIEW CARD</a>

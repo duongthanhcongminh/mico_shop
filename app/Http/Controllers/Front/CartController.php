@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use DB;
 use App\Http\Controllers\Controller;
 use App\Services\Product\ProductServiceInterface;
@@ -14,24 +15,46 @@ use App\Helper\CartHelper;
 class CartController extends Controller
 {
     private $cart;
+    private ProductCategoryServiceInterface $productCategoryService;
+    private $request;
 
-    public function __construct(CartHelper $cart)
+    public function __construct(CartHelper $cart,
+                                ProductCategoryServiceInterface $productCategoryService, Request $request)
     {
         $this->cart = $cart;
+        $this->productCategoryService = $productCategoryService;
+        $this->request = $request;
+    }
+
+    public function show()
+    {
+        $categories = $this->productCategoryService->all();
+
+        return view('front.shop.show',compact('categories'));
     }
 
     public function index()
     {
         $items = $this->cart->get();
-        $total = Cart::total();
-        $subtotal = Cart::subtotal();
+        $total = 0;
+        $categories = $this->productCategoryService->all();
 
-        return view('front.shop.cart',compact('items','total','subtotal'));
+        foreach ($items as $item) {
+            $total += $item->total;
+        }
+        $subtotal = $total;
+
+        return view('front.shop.cart',compact('items','total','categories','subtotal'));
     }
 
     public function add($id)
     {
-        $data = $this->cart->add($id);
+
+        $color = $this->request->get('color');
+        $size = $this->request->get('size');
+        $qty = $this->request->get('qty');
+
+        $data = $this->cart->add($id,$qty,$size,$color);
         if ($data['is_success'])
             return back()->with('notification',$data['message']);
 
@@ -51,14 +74,6 @@ class CartController extends Controller
         return back();
     }
 
-    public function get_total_price(){
-        $this->cart->get_total_price();
-         return back();
-    }
 
-    public function get_total_quantity(){
-        $this->cart->get_total_quantity();
-        return back();
-    }
 
 }

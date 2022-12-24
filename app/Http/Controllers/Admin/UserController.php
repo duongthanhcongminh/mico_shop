@@ -8,6 +8,7 @@ use App\Services\User\UserServiceInterface;
 use App\Utilities\Common;
 use Illuminate\Http\Request;
 use App\Utilities\Constant;
+use DB;
 
 
 class UserController extends Controller
@@ -63,6 +64,10 @@ class UserController extends Controller
         }
 
         $user = $this->userService->create($data);
+        $cart_data = [
+            'id_user' => $user->id,
+        ];
+        DB::table('cart')->insert($cart_data);
 
         return redirect('admin/user/'.$user->id);
     }

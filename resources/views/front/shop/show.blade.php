@@ -54,7 +54,8 @@
                                 </div>
                             </div>
                     </div>
-                    <div class="col-lg-6">
+                    <form method="get" action="/cart/add/{{ $product->id }}" class="col-lg-6">
+                        @csrf
                         <div class="product-details">
                             <div class="pd-title">
                                 <span>{{ $product->tag }}</span>
@@ -94,26 +95,30 @@
                                     <h6>Color</h6>
                                     <div class="pd-color-choose">
                                         @foreach (array_unique(array_column($product->productDetails->toArray(),'color')) as $productColor)
-                                        <div class="cc-item">
-                                            <input type="radio" id="cs-{{ $productColor }}">
-                                            <label for ="cs-{{ $productColor }}" class = "cc-{{ $productColor }}"></label>
-                                        </div>
+{{--                                        <div class="cc-item">--}}
+{{--                                            <input type="radio" id="cc-{{ $productColor }}">--}}
+{{--                                            <label for ="cc-{{ $productColor }}" class = "cc-{{ $productColor }}"></label>--}}
+{{--                                        </div>--}}
+                                            <div class = "cc-item">
+                                                <input type="radio" name="color" id="cc-{{ $productColor }}" value = "{{ $productColor }}">
+                                                <label for ="cc-{{ $productColor }}" class = "cc-{{ $productColor }}"></label>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>
                                 <div class="pd-size-choose">
                                     @foreach (array_unique(array_column($product->productDetails->toArray(),'size')) as $productSize)
                                         <div class="sc-item">
-                                            <input type="radio" id="sc-{{ $productSize }}">
+                                            <input type="radio" name="size" id="sc-{{ $productSize }}" value="{{ $productSize }}">
                                             <label for ="sc-{{ $productSize }}">{{ $productSize }}</label>
                                         </div>
                                     @endforeach
                                 </div>
                                 <div class="quantity">
                                         <div class="pro-qty">
-                                            <input type="text" value="1" id = "qty-detail">
+                                            <input type="text" name="qty" value="1" id = "qty-detail">
                                         </div>
-                                        <a href = "#!" class="primary-btn pd-cart add-cart-detail1">Add To Cart</a>
+                                        <button type="submit" class="primary-btn pd-cart add-cart-detail1">Add To Cart</button>
                                 </div>
                             </div>
                             <ul class="pd-tags">
@@ -130,7 +135,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             <div class="product-tab">
                 <div class="tab-item">
