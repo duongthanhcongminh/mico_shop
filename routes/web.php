@@ -49,7 +49,8 @@ Route::prefix('account')->group(function(){
     Route::post('register',[\App\Http\Controllers\Front\AccountController::class,'postRegister']);
 
     Route::get('info',[\App\Http\Controllers\Front\AccountController::class,'myInfoIndex']);
-    Route::post('info',[\App\Http\Controllers\Front\AccountController::class,'myInfoIndex']);
+    Route::get('edit-info/{id}',[\App\Http\Controllers\Front\AccountController::class,'myInfoEdit']);
+    Route::post('edit-info/{id}',[\App\Http\Controllers\Front\AccountController::class,'myInfoUpdate']);
 
     Route::prefix('my-order')->group(function (){
         Route::get('/',[\App\Http\Controllers\Front\AccountController::class,'myOrderIndex']);
@@ -67,7 +68,7 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
     Route::resource('product',\App\Http\Controllers\Admin\ProductController::class);
     Route::resource('product/{product_id}/image',\App\Http\Controllers\Admin\ProductImageController::class);
     Route::resource('product/{product_id}/detail',\App\Http\Controllers\Admin\ProductDetailController::class);
-    //Route::resource('order',\App\Http\Controllers\Admin\OrderController::class);
+    Route::resource('order',\App\Http\Controllers\Admin\OrderController::class);
 
     Route::prefix('login')->group(function (){
         Route::get('',[\App\Http\Controllers\Admin\HomeController::class,'getLogin'])->withoutMiddleware('CheckAdminLogin');

@@ -17,20 +17,23 @@ class CartController extends Controller
     private $cart;
     private ProductCategoryServiceInterface $productCategoryService;
     private $request;
+    private $cartHelper;
 
     public function __construct(CartHelper $cart,
-                                ProductCategoryServiceInterface $productCategoryService, Request $request)
+                                ProductCategoryServiceInterface $productCategoryService, Request $request, CartHelper $cartHelper)
     {
         $this->cart = $cart;
         $this->productCategoryService = $productCategoryService;
         $this->request = $request;
+        $this->cartHelper = $cartHelper;
     }
 
     public function show()
     {
         $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
 
-        return view('front.shop.show',compact('categories'));
+        return view('front.shop.show',compact('categories','cartItems'));
     }
 
     public function index()
@@ -38,13 +41,14 @@ class CartController extends Controller
         $items = $this->cart->get();
         $total = 0;
         $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
 
         foreach ($items as $item) {
             $total += $item->total;
         }
         $subtotal = $total;
 
-        return view('front.shop.cart',compact('items','total','categories','subtotal'));
+        return view('front.shop.cart',compact('items','total','categories','subtotal','cartItems'));
     }
 
     public function add($id)

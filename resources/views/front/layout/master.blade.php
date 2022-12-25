@@ -48,7 +48,7 @@
             <div class="ht-left">
                 <div class="mail-service">
                     <i class="fa fa-envelope"></i>
-                    micoshop@gmail.com
+                    micoshop1999@gmail.com
                 </div>
                 <div class="phone-service">
                     <i class="fa fa-phone"></i>
@@ -147,23 +147,24 @@
                                 <li class="cart-icon">
                                     <a href = "./cart">
                                         <i class="icon_bag_alt"></i>
-                                        <span class="cart-count">{{ Cart::count() }}</span>
+                                        <span class="cart-count">{{ count($cartItems) }}</span>
                                     </a>
                                     <div class="cart-hover">
                                         <div class="select-items">
                                             <table>
                                                 <tbody>
-                                                    @foreach(Cart::content() as $cart)
-                                                        <tr data-rowId = "{{$cart->rowId}}">
-                                                            <td class="si-pic"><img style="height: 70px;" src="front/img/products/{{ $cart->options->images[0]->path }}" alt=""></td>
+                                                    @foreach($cartItems as $cartItem)
+                                                        <tr data-rowId = "{{$cartItem->id}}">
+                                                            <td class="si-pic"><img style="height: 70px;" src="front/img/products/{{ $cartItem->product_image }}" alt=""></td>
                                                             <td class="si-text">
                                                                 <div class="product-selected">
-                                                                    <p>${{ $cart->price }} x {{ $cart->qty }}</p>
-                                                                    <h6>{{ $cart->name }}</h6>
+                                                                    <h6>{{ $cartItem->product_name }}</h6>
+                                                                    <p>( {{ $cartItem->product_size }},{{ $cartItem->product_color }} )</p>
+                                                                    <p>${{ $cartItem->product_price }} x {{ $cartItem->qty }}</p>
                                                                 </div>
                                                             </td>
                                                             <td class="si-close">
-                                                                <i onclick="removeCart('{{ $cart->rowId }}')" class="ti-close"></i>
+                                                                <a href="cart/delete/{{ $cartItem->id }}"><i class="ti-close"></i></a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -172,7 +173,9 @@
                                         </div>
                                         <div class="select-total">
                                             <span>total:</span>
-                                            <h5>${{ Cart::total() }}</h5>
+                                            <h5>
+                                                ${{array_sum(array_column($cartItems->toArray(),'total'))}}
+                                            </h5>
                                         </div>
                                         <div class="select-button">
                                             <a href="./cart" class="primary-btn view-card">VIEW CARD</a>
@@ -371,8 +374,8 @@
 <script>
     deletePromoRecord();
 </script>
-{{--<script src="front/js/cart.js"></script>--}}
-<script src="js/wishlist.js"></script>
+<script type="text/javascript" src="./dashboard/assets/scripts/main.js"></script>
+<script type="text/javascript" src="./dashboard/assets/scripts/my_script.js"></script>
 </body>
 
 </html>

@@ -23,23 +23,25 @@ class CheckOutController extends Controller
     private $orderDetailService;
     private $cart;
     private $productCategoryService;
+    private $cartHelper;
 
 
     public function __construct(OrderServiceInterface $orderService,
                                 OrderDetailServiceInterface $orderDetailService,
                                 CartHelper $cart,
-                                ProductCategoryServiceInterface $productCategoryService)
+                                ProductCategoryServiceInterface $productCategoryService,CartHelper $cartHelper)
     {
         $this->orderService = $orderService;
         $this->orderDetailService = $orderDetailService;
         $this->productCategoryService = $productCategoryService ;
         $this->cart = $cart;
-
+        $this->cartHelper = $cartHelper;
     }
 
     public function index()
     {
         $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
         $items = $this->cart->get();
         $total = 0;
         foreach ($items as $item) {
@@ -48,7 +50,7 @@ class CheckOutController extends Controller
         $subtotal = $total;
 
 
-        return view('front.checkout.index',compact('items','total','subtotal','categories'));
+        return view('front.checkout.index',compact('items','total','subtotal','categories','cartItems'));
     }
 
     public function addOrder(Request $request)
@@ -159,8 +161,9 @@ class CheckOutController extends Controller
     public function result()
     {
         $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
         $notification = session('notification');
-        return view('front.checkout.result',compact('notification','categories'));
+        return view('front.checkout.result',compact('notification','categories','cartItems'));
     }
 
 

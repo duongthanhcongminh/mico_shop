@@ -12,7 +12,7 @@
                     <h2 class="mb-5">Your Information</h2>
                     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                     <li class="nav-item">
-                        <a href="./front/account/{{ $user[0]->id }}/edit-info" class="nav-link">
+                        <a href="/account/edit-info/{{ $user[0]->id }}" class="nav-link">
                                 <span class="btn-icon-wrapper pr-2 opacity-8">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>

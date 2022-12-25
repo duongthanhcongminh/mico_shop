@@ -165,7 +165,7 @@
                             <label for="description"
                                    class="col-md-3 text-md-right col-form-label">Description</label>
                             <div class="col-md-9 col-xl-8">
-                                <textarea name="description" id="description" class="form-control"></textarea>
+                                <textarea name="description" id="description" class="form-control">{{ $user->description }}</textarea>
                             </div>
                         </div>
 

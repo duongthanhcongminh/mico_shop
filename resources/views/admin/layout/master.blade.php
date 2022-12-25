@@ -133,7 +133,7 @@
 
                         <li class="mm-active">
                             <a href="#">
-                                <i class="metismenu-icon pe-7s-plugin"></i>Applications
+                                <i class="metismenu-icon pe-7s-plugin"></i>Management
                                 <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                             </a>
                             <ul>

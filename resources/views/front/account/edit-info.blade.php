@@ -14,12 +14,15 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <form method="post" action="/front/account/{{ $user->id }}" enctype="multipart/form-data">
+                    <form method="post" action="account/edit-info/{{ $user->id }}" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
+                        @method('POST')
 
-                        @include('admin.components.notification')
-
+                        @if(session('notification'))
+                            <div class="alert alert-warning" role="alert">
+                                {{session('notification')}}
+                            </div>
+                        @endif
                         <div class="position-relative row form-group">
                             <label for="image"
                                    class="col-md-3 text-md-right col-form-label">Avatar</label>
@@ -134,25 +137,10 @@
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="level"
-                                   class="col-md-3 text-md-right col-form-label">Level</label>
-                            <div class="col-md-9 col-xl-8">
-                                <select required name="level" id="level" class="form-control">
-                                    <option value="">-- Level --</option>
-                                    @foreach(\App\Utilities\Constant::$user_level as $key => $value)
-                                        <option value={{$key}}>
-                                            {{$value}}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
                             <label for="description"
                                    class="col-md-3 text-md-right col-form-label">Description</label>
                             <div class="col-md-9 col-xl-8">
-                                <textarea name="description" id="description" class="form-control"></textarea>
+                                <textarea name="description" id="description" class="form-control ">{{ $user->description }}</textarea>
                             </div>
                         </div>
 

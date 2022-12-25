@@ -12,6 +12,7 @@ use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use App\Services\ProductComment\ProductCommentServiceInterface;
 use Illuminate\Http\Request;
 use function Symfony\Component\String\b;
+use App\Helper\CartHelper;
 
 
 class ShopController extends Controller
@@ -25,23 +26,26 @@ class ShopController extends Controller
                                 ProductCommentServiceInterface  $productCommentService,
                                 ProductCategoryServiceInterface $productCategoryService,
                                 BrandServiceInterface            $brandService,
+                                CartHelper $cartHelper
     )
     {
         $this ->productService = $productService;
         $this ->productCommentService = $productCommentService;
         $this ->productCategoryService = $productCategoryService;
         $this ->brandService = $brandService;
+        $this->cartHelper = $cartHelper;
     }
 
     public function show($id)
     {
         $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
         $brands = $this->brandService->all();
 
         $product = $this ->productService->find($id);
         $relatedProducts = $this->productService->getRelatedProducts($product);
 
-        return view('front.shop.show',compact('product','relatedProducts', 'categories','brands'));
+        return view('front.shop.show',compact('product','relatedProducts', 'categories','brands','cartItems'));
     }
 
     public function postComment(Request $request)
@@ -56,16 +60,18 @@ class ShopController extends Controller
         $categories = $this->productCategoryService->all();
         $brands = $this->brandService->all();
         $products = $this->productService->getProductOnIndex($request);
+        $cartItems = $this->cartHelper->get();
 
-        return view('front.shop.index', compact('products','categories','brands'));
+        return view('front.shop.index', compact('products','categories','brands','cartItems'));
     }
 
     public function category($categoryName, Request $request)
     {
         $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
         $brands = $this->brandService->all();
         $products = $this->productService->getProductsByCategory($categoryName,$request);
 
-        return view('front.shop.index', compact('products','categories','brands'));
+        return view('front.shop.index', compact('products','categories','brands','cartItems'));
     }
 }

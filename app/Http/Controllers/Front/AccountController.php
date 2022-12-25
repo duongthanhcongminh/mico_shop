@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Services\Order\OrderServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
 use App\Services\ProductCategory\ProductCategoryServiceInterface;
+use App\Utilities\Common;
 use App\Utilities\Constant;
 use DB;
 use App\Http\Controllers\Controller;
@@ -13,6 +14,7 @@ use App\Services\User\UserServiceInterface;
 use http\Exception\BadConversionException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Helper\CartHelper;
 
 class AccountController extends Controller
 {
@@ -20,23 +22,27 @@ class AccountController extends Controller
     private ProductCategoryServiceInterface $productCategoryService;
     private $orderService;
     private $orderDetailService;
+    private $cartHelper;
 
 
     public function __construct(UserServiceInterface $userService,
                                 ProductCategoryServiceInterface $productCategoryService,
-                                OrderServiceInterface $orderService,OrderDetailServiceInterface $orderDetailService)
+                                OrderServiceInterface $orderService,OrderDetailServiceInterface $orderDetailService,
+                                CartHelper $cartHelper)
     {
         $this->userService = $userService;
         $this->productCategoryService = $productCategoryService;
         $this->orderService = $orderService;
         $this->orderDetailService= $orderDetailService;
+        $this->cartHelper = $cartHelper;
     }
 
     public function show()
     {
         $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
 
-        return view('front.account.show',compact('categories'));
+        return view('front.account.show',compact('categories','cartItems'));
     }
 
 
@@ -44,7 +50,8 @@ class AccountController extends Controller
     public function login()
     {
         $categories = $this->productCategoryService->all();
-        return view('front.account.login', compact('categories'));
+        $cartItems = $this->cartHelper->get();
+        return view('front.account.login', compact('categories','cartItems'));
     }
 
     public function checkLogin(Request $request)
@@ -75,7 +82,8 @@ class AccountController extends Controller
     public function register()
     {
         $categories = $this->productCategoryService->all();
-        return view('front.account.register',compact('categories'));
+        $cartItems = $this->cartHelper->get();
+        return view('front.account.register',compact('categories','cartItems'));
 
     }
 
@@ -111,7 +119,7 @@ class AccountController extends Controller
     public function myOrderIndex()
     {
         $categories = $this->productCategoryService->all();
-
+        $cartItems = $this->cartHelper->get();
         $user_id = Auth::user()->id;
         $orders = DB::table('orders')->where('user_id', $user_id)->get();
         $orderDetails = [];
@@ -123,14 +131,14 @@ class AccountController extends Controller
             }
         }
 
-        return view('front.account.my-order.index',compact('categories','orders', 'orderDetails'));
+        return view('front.account.my-order.index',compact('categories','orders', 'orderDetails','cartItems'));
     }
 
     public function myOrderShow($id)
     {
         $categories = $this->productCategoryService->all();
-
-        return view('front.account.my-order.show',compact('categories'));
+        $cartItems = $this->cartHelper->get();
+        return view('front.account.my-order.show',compact('categories','cartItems'));
     }
 
     /**
@@ -145,11 +153,50 @@ class AccountController extends Controller
         $user_id = Auth::user()->id;
         $user = DB::table('users')->where('id', $user_id)->get();
         $categories = $this->productCategoryService->all();
-        return view('front.account.info', compact('categories','user'));
+        $cartItems = $this->cartHelper->get();
+        return view('front.account.info', compact('categories','user','cartItems'));
     }
 
-    public function myInfoEdit(User $user)
+    public function myInfoEdit($user_id)
     {
-        return view('front.account.edit-info',compact('user'));
+        $user = $this->userService->find($user_id);
+//        $user = DB::table('users')->where('id', $user_id)->get();
+
+        $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
+        return view('front.account.edit-info',compact('user','categories','cartItems'));
+    }
+
+    public function myInfoUpdate(Request $request, $user_id)
+    {
+        $data = $request->all();
+
+        // Xu ly mat khau
+        if($data['password']){
+            if ($data['password'] != $data['password_confirmation']){
+                return back()
+                    ->with('notification','ERROR: Confirm password does not match');
+            }
+            $data['password'] = bcrypt($data['password']);
+        }
+        else {
+            unset($data['password']);
+        }
+
+        // Xu ly file anh
+        if($request->hasFile('image')) {
+            //them file moi:
+            $data['avatar'] = Common::uploadFile($request->file('image'),'front/img/user');
+
+            //xoa file cu:
+            $file_name_old = $request->image_old;
+            if ($file_name_old != ''){
+                unlink('front/img/user/' . $file_name_old);
+            }
+        }
+
+        $this->userService->update($data, $user_id);
+
+        return redirect('/account/info');
     }
 }
