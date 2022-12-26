@@ -33,6 +33,7 @@
                             <th>PRICE</th>
                             <th>QTY</th>
                             <th>TOTAL</th>
+                            <th>STATUS</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -60,8 +61,8 @@
                                         <td class="cart-title first-row text-center">
                                             {{ $orderDetail->qty }}
                                         </td>
-
                                         <td class="total-price first-row text-center">${{ $orderDetail->total }}</td>
+                                        <td class="total-price first-row text-center">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
                                     </tr>
                                 @endif
                             @endforeach

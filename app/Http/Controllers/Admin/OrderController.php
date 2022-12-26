@@ -69,7 +69,8 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = $this->orderService->find($id);
+        return view('admin.order.edit', compact('order'));
     }
 
     /**

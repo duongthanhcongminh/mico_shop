@@ -1,38 +1,28 @@
 @extends('admin.layout.master')
 
-@section('title', 'User')
+@section('title', 'Account')
 
 @section('body')
 
-<!-- Main -->
+
+
+    <!-- Main -->
 <div class="app-main__inner">
 
-    <div class="app-page-title">
-        <div class="page-title-wrapper">
-            <div class="page-title-heading">
-                <div class="page-title-icon">
-                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
-                </div>
-                <div>
-                    User
-                    <div class="page-title-subheading">
-                        View, create, update, delete and manage.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <form method="post" action="/admin/user/{{ $user->id }}" enctype="multipart/form-data">
+                    <form method="post" action="/admin/account/edit-info/{{ $user->id }}" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
+                        @method('POST')
 
-                        @include('admin.components.notification')
-
+                        @if(session('notification'))
+                            <div class="alert alert-warning" role="alert">
+                                {{session('notification')}}
+                            </div>
+                        @endif
                         <div class="position-relative row form-group">
                             <label for="image"
                                    class="col-md-3 text-md-right col-form-label">Avatar</label>
@@ -147,31 +137,16 @@
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="level"
-                                   class="col-md-3 text-md-right col-form-label">Level</label>
-                            <div class="col-md-9 col-xl-8">
-                                <select required name="level" id="level" class="form-control">
-                                    <option  value="">-- Level --</option>
-                                    @foreach(\App\Utilities\Constant::$user_level as $key => $value)
-                                        <option value={{$key}}>
-                                            {{$value}}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
                             <label for="description"
                                    class="col-md-3 text-md-right col-form-label">Description</label>
                             <div class="col-md-9 col-xl-8">
-                                <textarea name="description" id="description" class="form-control">{{ $user->description }}</textarea>
+                                <textarea name="description" id="description" class="form-control ">{{ $user->description }}</textarea>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group mb-1">
                             <div class="col-md-9 col-xl-8 offset-md-2">
-                                <a href="./admin/user" class="border-0 btn btn-outline-danger mr-1">
+                                <a href="./admin/account/info" class="border-0 btn btn-outline-danger mr-1">
                                                     <span class="btn-icon-wrapper pr-1 opacity-8">
                                                         <i class="fa fa-times fa-w-20"></i>
                                                     </span>
@@ -194,5 +169,6 @@
     </div>
 </div>
 <!-- End Main -->
+
 
 @endsection

@@ -23,6 +23,17 @@
                         </div>
                     </div>
 
+                    <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                        <li class="nav-item">
+                            <a href="./admin/order/{{ $order->id }}/edit" class="nav-link">
+                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                    <i class="fa fa-edit fa-w-20"></i>
+                                </span>
+                                <span>Edit</span>
+                            </a>
+                        </li>
+                    </ul>
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">

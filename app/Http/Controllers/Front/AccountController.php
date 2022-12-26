@@ -11,7 +11,6 @@ use App\Utilities\Constant;
 use DB;
 use App\Http\Controllers\Controller;
 use App\Services\User\UserServiceInterface;
-use http\Exception\BadConversionException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Helper\CartHelper;
@@ -76,7 +75,7 @@ class AccountController extends Controller
     {
         Auth::logout();
 
-        return back();
+        return redirect('/');
     }
 
     public function register()

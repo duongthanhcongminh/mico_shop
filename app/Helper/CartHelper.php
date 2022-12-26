@@ -4,6 +4,7 @@ namespace App\Helper;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Product\ProductServiceInterface;
 use DB;
+
 class CartHelper
 {
     private ProductServiceInterface $productService;
@@ -15,9 +16,13 @@ class CartHelper
 
 
     public function get() {
-        $user_id = Auth::user()->id;
-        $cart = DB::table('cart')->where('id_user', $user_id)->get();
-        $items = DB::table('cart_item')->where('id_cart', $cart[0]->id)->get();
+        $items = [];
+
+        if(Auth::check()) {
+            $user_id = Auth::user()->id;
+            $cart = DB::table('cart')->where('id_user', $user_id)->get();
+            $items = DB::table('cart_item')->where('id_cart', $cart[0]->id)->get();
+        }
 
         return $items;
     }

@@ -90,6 +90,12 @@
                                                         class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                                         Details
                                                     </a>
+                                                    <a href="./admin/order/{{ $order->id }}/edit" data-toggle="tooltip" title="Edit"
+                                                       data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa fa-edit fa-w-20"></i>
+                                            </span>
+                                                    </a>
                                                 </td>
                                             </tr>
 

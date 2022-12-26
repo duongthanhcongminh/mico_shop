@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 //Front (Client)
 Route::get('/', [\App\Http\Controllers\Front\HomeController::class,'index']);
-Route::get('/about',[\App\Http\Controllers\Front\AboutController::class,'index']);
+
 
 Route::prefix('shop')->group(function(){
     Route::get('product/{id}', [App\Http\Controllers\Front\ShopController::class, 'show']);
@@ -76,5 +76,11 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
     });
 
     Route::get('logout',[\App\Http\Controllers\Admin\HomeController::class,'logout']);
+
+    Route::prefix('account')->group(function () {
+        Route::get('info', [\App\Http\Controllers\Admin\HomeController::class, 'myInfoIndex']);
+        Route::get('edit-info/{id}', [\App\Http\Controllers\Admin\HomeController::class, 'myInfoEdit']);
+        Route::post('edit-info/{id}', [\App\Http\Controllers\Admin\HomeController::class, 'myInfoUpdate']);
+    });
 });
 

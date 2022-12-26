@@ -199,45 +199,7 @@
                         @else
                             <ul class="d-flex justify-content-center align-items-center">
                                 <li class="heart-icon">
-                                    <a href = "/account/login"><i class = "fa fa-user"></i></a>
-                                </li>
-                                <li class="cart-icon">
-                                    <a href = "./cart">
-                                        <i class="icon_bag_alt"></i>
-                                        <span class="cart-count">{{ Cart::count() }}</span>
-                                    </a>
-                                    <div class="cart-hover">
-                                        <div class="select-items">
-                                            <table>
-                                                <tbody>
-{{--                                                @foreach($items as $item)--}}
-{{--                                                    <tr>--}}
-{{--                                                        <td class="si-pic"><img style="height: 70px;" src="front/img/products/{{ $item->product_image }}" alt=""></td>--}}
-{{--                                                        <td class="si-text">--}}
-{{--                                                            <div class="product-selected">--}}
-{{--                                                                <p>${{ $item->price }} x {{ $item->qty }}</p>--}}
-{{--                                                                <h6>{{ $item->name }}</h6>--}}
-{{--                                                            </div>--}}
-{{--                                                        </td>--}}
-{{--                                                    </tr>--}}
-{{--                                                @endforeach--}}
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="select-total">
-                                            <span>total:</span>
-{{--                                            <h5>${{ $total }}</h5>--}}
-                                        </div>
-                                        <div class="select-button">
-                                            <a href="./cart" class="primary-btn view-card">VIEW CARD</a>
-                                            <a href="./checkout" class="primary-btn checkout-card">CHECK OUT</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="text-body" href="/account/login">
-                                        <i class="fa fa-sign-in" aria-hidden="true"></i>
-                                    </a>
+                                    <a href = "/account/login"><i class = "fa fa-sign-in"></i> Login</a>
                                 </li>
                             </ul>
                         @endif

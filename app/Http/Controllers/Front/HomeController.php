@@ -6,6 +6,7 @@ use App\Services\Blog\BlogServiceInterface;
 use App\Services\Product\ProductServiceInterface;
 use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use App\Helper\CartHelper;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController
 {
@@ -27,7 +28,9 @@ class HomeController
     public function show()
     {
         $categories = $this->productCategoryService->all();
+
         $cartItems = $this->cartHelper->get();
+
 
         return view('front.shop.show',compact('categories','cartItems'));
     }
@@ -37,8 +40,8 @@ class HomeController
         $featuredProducts = $this->productService->getFeaturedProducts();
         $blogs = $this->blogService->getLatestBlogs();
         $categories = $this->productCategoryService->all();
-        $cartItems = $this->cartHelper->get();
 
+        $cartItems = $this->cartHelper->get();
 
         return view('front.index', compact('featuredProducts', 'blogs','categories','cartItems'));
     }

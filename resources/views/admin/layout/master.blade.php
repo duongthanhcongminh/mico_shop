@@ -64,8 +64,7 @@
                         <div class="widget-content-wrapper">
                             <div class="widget-content-left">
                                 <div class="btn-group">
-                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                       class="p-0 btn">
+                                    <a href="/admin/account/info" class="p-0 btn">
                                         <img width="42" class="rounded-circle" src="front/img/user/{{ Auth::user()->avatar ?? 'default-avatar.png' }}"
                                              alt="">
                                     </a>
