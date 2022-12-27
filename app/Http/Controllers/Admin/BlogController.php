@@ -3,18 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Services\Order\OrderServiceInterface;
+use App\Services\Blog\BlogServiceInterface;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class BlogController extends Controller
 {
-    private $orderService;
+    private $blogService;
 
-    public function __construct(OrderServiceInterface $orderService)
+    public function __construct(BlogServiceInterface $blogService)
     {
-        $this->orderService = $orderService;
+        $this->blogService = $blogService;
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +21,8 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        $orders = $this->orderService->searchAndPaginate('name',$request->get('search'));
-
-        return view('admin.order.index', compact('orders'));
+        $blogs = $this->blogService->searchAndPaginate('title',$request->get('search'));
+        return view('admin.blog.index', compact('blogs'));
     }
 
     /**
@@ -56,9 +54,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = $this->orderService->find($id);
-
-        return view('admin.order.show',compact('order'));
+        $blog = $this->blogService->find($id);
+        return view('admin.blog.show',compact('blog'));
     }
 
     /**
@@ -69,8 +66,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        $order = $this->orderService->find($id);
-        return view('admin.order.edit', compact('order'));
+        //
     }
 
     /**
@@ -82,10 +78,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $this->orderService->update($data, $id);
-
-        return redirect('admin/order');
+        //
     }
 
     /**
