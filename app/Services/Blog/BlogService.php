@@ -18,4 +18,5 @@ class BlogService extends BaseService implements BlogServiceInterface
     {
         return $this->repository->getLastesBlog($limit);
     }
+
 }

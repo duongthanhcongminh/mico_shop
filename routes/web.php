@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 //Front (Client)
 Route::get('/', [\App\Http\Controllers\Front\HomeController::class,'index']);
-
+Route::get('blogdetail/{id}', [\App\Http\Controllers\Front\HomeController::class, 'getBlogDetail']);
+Route::get('blog', [\App\Http\Controllers\Front\HomeController::class, 'getBlog']);
 
 Route::prefix('shop')->group(function(){
     Route::get('product/{id}', [App\Http\Controllers\Front\ShopController::class, 'show']);

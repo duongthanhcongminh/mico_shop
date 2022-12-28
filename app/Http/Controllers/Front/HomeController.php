@@ -45,4 +45,25 @@ class HomeController
 
         return view('front.index', compact('featuredProducts', 'blogs','categories','cartItems'));
     }
+
+    public function getBlog()
+    {
+        $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
+        $blogs = $this->blogService->all();
+
+        return view('front.blog',compact('categories','cartItems','blogs'));
+    }
+
+
+    public function getBlogDetail($id)
+    {
+
+        $categories = $this->productCategoryService->all();
+        $cartItems = $this->cartHelper->get();
+        $blog = $this->blogService->find($id);
+//        $blog = DB::table('blogs')->where('id', $id)->get();
+
+        return view('front.blogdetail', compact('categories','cartItems','blog'));
+    }
 }

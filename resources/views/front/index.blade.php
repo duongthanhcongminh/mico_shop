@@ -381,12 +381,8 @@
                                     <i class="fa fa-calendar-0"></i>
                                     {{ date('M d, Y', strtotime($blog->created_at)) }}
                                 </div>
-                                <div class="tag-item">
-                                    <i class="fa fa-comment-o"></i>
-                                    {{count($blog->blogComments )}}
-                                </div>
                             </div>
-                            <a href = "#">
+                            <a href = "blogdetail/{{$blog->id}}">
                                 <h4>{{ $blog->title }}</h4>
                             </a>
                             <p>{{ $blog->subtitle }}</p>

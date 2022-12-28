@@ -106,11 +106,7 @@
                                 <li><a href="#">Terms & Conditions</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Blogs</a>
-                            <ul class="dropdown" style="width: 150px; padding: 10px 12px">
-                                <li><a href="#">Get Inspired</a></li>
-                                <li><a href="#">Lifestyle</a></li>
-                            </ul>
+                        <li><a href="/blog">Blogs</a>
                         </li>
                         <li class = "last"><a href = "./account/my-order">My Order</a></li>
                     </ul>

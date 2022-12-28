@@ -8,9 +8,9 @@
             <i class = "fa fa-heart-o"></i>
         </div>
         <ul>
-            <li class = "w-icon active"><a href = "cart/add/{{ $product->id }}" class = "add-cart1"><i class = "icon_bag_alt"></i></a></li>
+
             <li class = "quick-view"><a href = "shop/product/{{ $product->id }}">+ Quick View</a></li>
-            <li class="w-icon"><a href="#"><i class="fa fa-share"></i></a></li>
+
         </ul>
     </div>
     <div class = "pi-text">
