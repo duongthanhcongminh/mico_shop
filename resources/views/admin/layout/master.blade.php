@@ -136,36 +136,103 @@
                                 <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                             </a>
                             <ul>
-                                <li>
-                                    <a href="./admin/user" class="{{ (request()->segment(2)=='user') ? 'mm-active':'' }}">
-                                        <i class="metismenu-icon"></i>User
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./admin/order" class="{{ (request()->segment(2)=='order') ? 'mm-active':'' }}">
-                                        <i class="metismenu-icon"></i>Order
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./admin/product" class="{{ (request()->segment(2)=='product') ? 'mm-active':'' }}">
-                                        <i class="metismenu-icon"></i>Product
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./admin/category" class="{{ (request()->segment(2)=='category') ? 'mm-active':'' }}">
-                                        <i class="metismenu-icon"></i>Category
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./admin/brand" class="{{ (request()->segment(2)=='brand') ? 'mm-active':'' }}">
-                                        <i class="metismenu-icon"></i>Brand
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./admin/blog" class="{{ (request()->segment(2)=='blog') ? 'mm-active':'' }}">
-                                        <i class="metismenu-icon"></i>Blog
-                                    </a>
-                                </li>
+                                @if(Auth::user()->level == 0)
+                                    <li>
+                                        <a href="./admin/order" class="{{ (request()->segment(2)=='order') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Order
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/product" class="{{ (request()->segment(2)=='product') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Product
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/category" class="{{ (request()->segment(2)=='category') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Category
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/brand" class="{{ (request()->segment(2)=='brand') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Brand
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/user" class="{{ (request()->segment(2)=='user') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>User
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/blog" class="{{ (request()->segment(2)=='blog') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Blog
+                                        </a>
+                                    </li>
+                                @elseif(Auth::user()->level == 1)
+                                    <li>
+                                        <a href="./admin/order" class="{{ (request()->segment(2)=='order') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Order
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/product" class="{{ (request()->segment(2)=='product') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Product
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/category" class="{{ (request()->segment(2)=='category') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Category
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/brand" class="{{ (request()->segment(2)=='brand') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Brand
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/user" class="{{ (request()->segment(2)=='user') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>User
+                                        </a>
+                                    </li>
+                                @elseif(Auth::user()->level == 3)
+                                    <li>
+                                        <a href="./admin/order" class="{{ (request()->segment(2)=='order') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Order
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/product" class="{{ (request()->segment(2)=='product') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Product
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/category" class="{{ (request()->segment(2)=='category') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Category
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/brand" class="{{ (request()->segment(2)=='brand') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Brand
+                                        </a>
+                                    </li>
+                                @elseif(Auth::user()->level == 2)
+                                    <li>
+                                        <a href="./admin/order" class="{{ (request()->segment(2)=='order') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Order
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./admin/product" class="{{ (request()->segment(2)=='product') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Product
+                                        </a>
+                                    </li>
+                                @else()
+                                    <li>
+                                        <a href="./admin/order" class="{{ (request()->segment(2)=='order') ? 'mm-active':'' }}">
+                                            <i class="metismenu-icon"></i>Order
+                                        </a>
+                                    </li>
+                                @endif
+
                             </ul>
                         </li>
                     </ul>

@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="page-title-actions">
-                    <a href="./admin/user/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                    <a href="./admin/blog/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                         <span class="btn-icon-wrapper pr-2 opacity-7">
                             <i class="fa fa-plus fa-w-20"></i>
                         </span>
@@ -59,6 +59,7 @@
                                     <th class="text-center">Subtitle</th>
                                     <th class="text-center">Category</th>
                                     <th class="text-center">Created at</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>

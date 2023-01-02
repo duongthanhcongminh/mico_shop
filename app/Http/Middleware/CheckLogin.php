@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class CheckAdminLogin
+class CheckLogin
 {
     /**
      * Get the path the user should be redirected to when they are not authenticated.
@@ -25,11 +25,13 @@ class CheckAdminLogin
 
 
         //neu da dang nhap nhung sai level: dang xuat la dang nhap lai
-        if (Auth::user()->level != Constant::user_level_manager && Auth::user()->level != Constant::user_level_admin ) {
+        if (Auth::user()->level == 5 )
+        {
             Auth::logout();
 
             return redirect()->guest('admin/login');
         }
+
 
         return $next($request);
     }

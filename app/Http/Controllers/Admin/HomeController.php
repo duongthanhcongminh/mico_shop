@@ -30,7 +30,8 @@ class HomeController extends Controller
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
-            'level'=> [Constant::user_level_admin, Constant::user_level_manager], // Tài khoản manager hoặc admin
+            'level'=> [Constant::user_level_admin, Constant::user_level_manager, Constant::user_level_warehouse,
+                Constant::user_level_support, Constant::user_level_delivery,], // Tài khoản manager hoặc admin
         ];
 
         $remember = $request->remember;

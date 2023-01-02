@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Services\Blog\BlogServiceInterface;
+use App\Utilities\Common;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -32,7 +34,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.blog.create');
     }
 
     /**
@@ -43,7 +45,19 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        // xu li file
+        if($request->hasFile('image')){
+            $data['image'] = Common::uploadFile($request->file('image'),'front/img/blog');
+        }
+
+        $blog = $this->blogService->create($data);
+
+        //cap nhat du lieu
+        $this->blogService->update($data, $blog->id);
+
+        return redirect('admin/blog/' . $blog->id);
     }
 
     /**
@@ -66,7 +80,9 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blog = $this->blogService->find($id);
+
+        return view('admin.blog.edit',compact('blog'));
     }
 
     /**
@@ -76,9 +92,25 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Blog $blog)
     {
-        //
+        $data = $request->all();
+
+        // Xu ly file anh
+        if($request->hasFile('image')) {
+            //them file moi:
+            $data['image'] = Common::uploadFile($request->file('image'),'front/img/blog');
+
+            //xoa file cu:
+            $file_name_old = $request->get('image_old');
+            if ($file_name_old != ''){
+                unlink('front/img/blog/' . $file_name_old);
+            }
+        }
+        //cap nhat du lieu
+        $this->blogService->update($data, $blog->id);
+
+        return redirect('admin/blog/' . $blog->id);
     }
 
     /**
@@ -89,6 +121,8 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->blogService->delete($id);
+
+        return redirect('admin/blog');
     }
 }

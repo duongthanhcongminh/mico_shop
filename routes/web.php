@@ -60,8 +60,8 @@ Route::prefix('account')->group(function(){
 });
 
 // Dashboard (Admin)
-Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
-    Route::redirect('','admin/user');
+Route::prefix('admin')->middleware('CheckLogin')->group(function(){
+    Route::redirect('','admin/order');
 
     Route::resource('user',\App\Http\Controllers\Admin\UserController::class);
     Route::resource('category',\App\Http\Controllers\Admin\ProductCategoryController::class);
@@ -73,8 +73,8 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
     Route::resource('blog',\App\Http\Controllers\Admin\BlogController::class);
 
     Route::prefix('login')->group(function (){
-        Route::get('',[\App\Http\Controllers\Admin\HomeController::class,'getLogin'])->withoutMiddleware('CheckAdminLogin');
-        Route::post('',[\App\Http\Controllers\Admin\HomeController::class,'postLogin'])->withoutMiddleware('CheckAdminLogin');
+        Route::get('',[\App\Http\Controllers\Admin\HomeController::class,'getLogin'])->withoutMiddleware('CheckLogin');
+        Route::post('',[\App\Http\Controllers\Admin\HomeController::class,'postLogin'])->withoutMiddleware('CheckLogin');
     });
 
     Route::get('logout',[\App\Http\Controllers\Admin\HomeController::class,'logout']);
