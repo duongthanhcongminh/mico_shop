@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('cart', function (Blueprint $table) {
             $table->id();
-            $table->string('id_user')->unsigned();
+
+            $table->string('id_user');
+
             $table->timestamps();
         });
     }
