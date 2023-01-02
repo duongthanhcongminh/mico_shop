@@ -117,6 +117,10 @@ class AccountController extends Controller
 
     public function myOrderIndex()
     {
+        if(!Auth::check()){
+            return redirect('account/login')->with('notification','Please login to see your order');
+        }
+
         $categories = $this->productCategoryService->all();
         $cartItems = $this->cartHelper->get();
         $user_id = Auth::user()->id;

@@ -21,7 +21,7 @@
 <!-- Banner header -->
 <div class="bg-img" id = "banner" style = "background-image: url('https://image.stern.de/8912638/t/fz/v2/w1440/r1.3333/-/25-jahre-friends.jpg')">
     <div id = "banner-text">
-        <h2>Sofas & Armchairs</h2>
+        <h2>Shopping now</h2>
     </div>
 </div>
 

@@ -91,14 +91,14 @@
                     <ul>
                         <li class="{{ (request()->segment(1) == '') ? 'active' : '' }}"><a href="./">Home</a></li>
                         <li class="{{ (request()->segment(1) == 'shop') ? 'active' : '' }}"><a href="./shop">Shop</a></li>
-                        <li><a href="#">Collection</a>
+                        <li><a href="./shop">Collection</a>
                             <ul class="dropdown">
                                 @foreach($categories as $category)
                                     <li><a href="shop/category/{{ $category->name }}">{{$category->name}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
-                        <li><a href="/about">About Us</a></li>
+                        <li><a href="#">About Us</a></li>
                         <li><a href="#">FAQs</a>
                             <ul class="dropdown" style="width: 200px; padding: 10px 12px">
                                 <li><a href="#">Helps & FAQs</a></li>

@@ -13,6 +13,7 @@ use App\Services\ProductComment\ProductCommentServiceInterface;
 use Illuminate\Http\Request;
 use function Symfony\Component\String\b;
 use App\Helper\CartHelper;
+use Auth;
 
 
 class ShopController extends Controller
@@ -50,6 +51,9 @@ class ShopController extends Controller
 
     public function postComment(Request $request)
     {
+        if(!Auth::check()){
+            return redirect('account/login')->with('notification','Please login before comment');
+        }
         $this->productCommentService->create($request->all());
 
         return redirect()->back();

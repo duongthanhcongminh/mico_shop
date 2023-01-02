@@ -4,9 +4,6 @@
         @if($product->discount != null)
             <div class = "sale">Sale</div>
         @endif
-        <div class = "icon1 icon-heart">
-            <i class = "fa fa-heart-o"></i>
-        </div>
         <ul>
 
             <li class = "quick-view"><a href = "shop/product/{{ $product->id }}">+ Quick View</a></li>
