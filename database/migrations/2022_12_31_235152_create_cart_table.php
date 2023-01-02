@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cart', function (Blueprint $table) {
-            $table->id();
+        if(!Schema::hasTable('cart')) {
+            Schema::create('cart', function (Blueprint $table) {
+                $table->id();
 
-            $table->string('id_user');
+                $table->string('id_user');
 
-            $table->timestamps();
-        });
+                $table->timestamps();
+            });
+        }
     }
 
     /**

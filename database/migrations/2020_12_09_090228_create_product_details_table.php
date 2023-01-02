@@ -13,16 +13,18 @@ class CreateProductDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_details', function (Blueprint $table) {
-            $table->id();
+        if(!Schema::hasTable('product_details')) {
+            Schema::create('product_details', function (Blueprint $table) {
+                $table->id();
 
-            $table->integer('product_id')->unsigned();
-            $table->string('color');
-            $table->string('size');
-            $table->integer('qty');
+                $table->integer('product_id')->unsigned();
+                $table->string('color');
+                $table->string('size');
+                $table->integer('qty');
 
-            $table->timestamps();
-        });
+                $table->timestamps();
+            });
+        }
     }
 
     /**

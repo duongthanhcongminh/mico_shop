@@ -13,21 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cart_item', function (Blueprint $table) {
-            $table->id();
+        if(!Schema::hasTable('cart_item')) {
+            Schema::create('cart_item', function (Blueprint $table) {
+                $table->id();
 
-            $table->integer('id_cart');
-            $table->integer('product_id');
-            $table->string('product_image');
-            $table->string('product_name');
-            $table->string('product_size');
-            $table->string('product_color');
-            $table->double('product_price');
-            $table->integer('qty');
-            $table->double('total');
+                $table->integer('id_cart');
+                $table->integer('product_id');
+                $table->string('product_image');
+                $table->string('product_name');
+                $table->string('product_size');
+                $table->string('product_color');
+                $table->double('product_price');
+                $table->integer('qty');
+                $table->double('total');
 
-            $table->timestamps();
-        });
+                $table->timestamps();
+            });
+        }
     }
 
     /**

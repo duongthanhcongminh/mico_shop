@@ -13,23 +13,25 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+        if(!Schema::hasTable('orders')) {
+            Schema::create('orders', function (Blueprint $table) {
+                $table->id();
 
-            $table->string('user_id')->unsigned();
-            $table->string('name');
-            $table->string('company_name')->nullable();
-            $table->string('country');
-            $table->string('street_address');
-            $table->string('postcode_zip');
-            $table->string('town_city');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('payment_type');
-            $table->integer('status');
+                $table->string('user_id');
+                $table->string('name');
+                $table->string('company_name')->nullable();
+                $table->string('country');
+                $table->string('street_address');
+                $table->string('postcode_zip');
+                $table->string('town_city');
+                $table->string('email');
+                $table->string('phone');
+                $table->string('payment_type');
+                $table->integer('status');
 
-            $table->timestamps();
-        });
+                $table->timestamps();
+            });
+        }
     }
 
     /**
