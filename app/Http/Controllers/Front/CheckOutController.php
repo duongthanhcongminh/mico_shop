@@ -82,9 +82,28 @@ class CheckOutController extends Controller
                 'amount'=>$item->product_price,
                 'total'=>$item->total,
             ];
+            //Cap nhat so luong hang ton
+            $detail_qty = DB::table('product_details')->where('product_id',$item->product_id)->where('color',$item->product_color)
+                ->where('size',$item->product_size)->value('qty');
+            $update_detail_qty = (int)$detail_qty - $item->qty;
+            DB::table('product_details')->where('product_id',$item->product_id)->where('color',$item->product_color)
+                ->where('size',$item->product_size)
+                ->update(array(
+                'qty'=> $update_detail_qty
+            ));
+
+            $product_qty = DB::table('products')->where('id',$item->product_id)->value('qty');
+            $update_product_qty = (int)$product_qty - $item->qty;
+            DB::table('products')->where('id',$item->product_id)->update(array(
+                'qty'=> $update_product_qty
+            ));
 
             $this->orderDetailService->create($data);
         }
+
+
+
+
 
         if ($request->payment_type == 'COD'){
             //Gui email
